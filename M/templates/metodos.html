@@ -1,0 +1,41 @@
+{% extends "nav.html" %}
+{% load static %}
+
+
+    {% block content %}
+    <div id="Metodos">
+        <h1 id="M-title">Metodos</h1>
+        <div id="M-text-container">
+        <p id="M-text"> En esta seccion podras utilizar diferentes metodos para resolver una variedad de problemas numericos</p>
+        </div>
+        <h2 class="M-title">Metodos para resolver Ecuaciones de una variable</h2>
+        <div class="Method-Container">
+            <a href="{% url 'BI' %}" ><div class="M-name-container"><p class="Method-title">Busqueda Incremental</p></div></a>
+            <a href="{% url 'B' %}" ><div class="M-name-container"><p class="Method-title">Bisección</p></div></a>
+            <a href="{% url 'PF' %}" ><div class="M-name-container"><p class="Method-title">Posicion Falsa</p></div></a>
+            <a href="{% url 'PFi' %}" ><div class="M-name-container"><p class="Method-title">Punto Fijo</p></div></a>
+            <a href="{% url 'NR' %}" ><div class="M-name-container"><p class="Method-title">Newton-Raphson</p></div></a>
+            <a href="{% url 'SEC' %}" ><div class="M-name-container"><p class="Method-title">Secante</p></div></a>
+            <a href="{% url 'RM' %}" ><div class="M-name-container"><p class="Method-title">Raices Multiples</p></div></a>
+        </div>
+        <h2 class="M-title">Metodos para resolver Sistemas de ecuaciones</h2>
+        <div class="Method-Container">
+            <a href="{% url 'EG1' %}" ><div class="M-name-container"><p class="Method-title">Eliminación Gaussiana Simple</p></div></a>
+            <a href="{% url 'EG2' %}" ><div class="M-name-container"><p class="Method-title">Eliminación Gaussiana pivote parcial</p></div></a>
+            <a href="{% url 'EG3' %}" ><div class="M-name-container"><p class="Method-title">Eliminación Gaussiana pivote total</p></div></a>
+            <a href="{% url 'LUS' %}" ><div class="M-name-container"><p class="Method-title">Factorizacion directa LU simple</p></div></a>
+            <a href="{% url 'LUP' %}" ><div class="M-name-container"><p class="Method-title">Factorizacion directa LU parcial</p></div></a>
+            <a href="{% url 'Cr' %}" ><div class="M-name-container"><p class="Method-title">Croult</p></div></a>
+            <a href="{% url 'DO' %}" ><div class="M-name-container"><p class="Method-title">Doolittle</p></div></a>
+            <a href="{% url 'CH' %}" ><div class="M-name-container"><p class="Method-title">Cholesky</p></div></a>
+            <a href="{% url 'IT' %}" ><div class="M-name-container"><p class="Method-title">Metodos Iterativos</p></div></a>
+        </div>
+        <h2 class="M-title">Metodos de Interpolación</h2>
+        <div class="Method-Container">
+            <a href="{% url 'Va' %}" ><div class="M-name-container"><p class="Method-title">Vandermonde</p></div></a>
+            <a href="{% url 'NDD' %}" ><div class="M-name-container"><p class="Method-title">Newton Diferencias Divididas</p></div></a>
+            <a href="{% url 'LA' %}" ><div class="M-name-container"><p class="Method-title">Lagrange</p></div></a>
+            <a href="{% url 'SP' %}" ><div class="M-name-container"><p class="Method-title">Spline </p></div></a>
+        </div>
+    </div>
+    {% endblock %}

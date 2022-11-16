@@ -1,0 +1,75 @@
+#Metodos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#graph-container{
+    width: 500px;
+    height: 500px;
+}
+
+#M-title{
+
+    margin-top: 60px;
+    font-size: 62px;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+#M-text{
+    font-size: 24px;
+    font-family: 'Rubik', sans-serif;
+}
+
+#M-text-container{
+    width: 1100px;
+}
+
+.M-title{
+    font-size: 32px;
+    font-family: 'Rubik', sans-serif;
+    color: #2a5a92;
+}
+
+.Method-Container{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-column-gap: 80px;
+    grid-row-gap: 40px;
+}
+
+.Method-title{
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: black;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 10px 5px 10px;
+}
+
+.M-name-container:hover{
+    background-color: #348D8F;
+}
+
+.Method-title:hover{
+    color: white;
+}
+
+.M-name-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5px;
+    height: 60px;
+}
+
+a{
+    text-decoration: none;
+}

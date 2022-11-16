@@ -1,0 +1,68 @@
+
+
+#graph-container{
+    width: 500px;
+    height: 500px;
+}
+
+#G-title{
+
+    margin-top: 60px;
+    font-size: 62px;
+    font-family: 'Rubik', sans-serif;
+}
+
+#Graficador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#G-text{
+    font-size: 24px;
+    font-family: 'Rubik', sans-serif;
+}
+
+#G-text-container{
+    width: 1200px;
+}
+
+input[type=text]{
+    border-radius: 8px;
+    height: 40px;
+    width: 600px;
+    font-size:24px;
+}
+
+#G-form{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#G-send{
+    background-color: #345E8F; /* Green */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#G-send:hover{
+    background-color: #588AC3; /* Green */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}

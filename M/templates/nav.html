@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/graph.css' %}">
+    <link rel="stylesheet" href="{% static 'css/methods.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klein</title>
+    <link rel="icon" href="{% static 'images/Klein.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Rubik:wght@600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+</head>
+<body>
+    <div id="nav-bar">
+        <div class="container">
+            <img id="icon" src="{% static 'images/Klein.png' %}">
+            <h1 id="title">Klein</h1>
+        </div>
+        <div class="container">
+            <a href="{% url 'metodos' %}" class="nav-link"><div class="nav-link-container"><h2>Metodos</h2></div></a>
+            <a href="{% url 'graficador' %}" class="nav-link"><div class="nav-link-container"><h2>Graficador</h2></div></a>
+            <a href="{% url 'ayuda' %}" class="nav-link"><div class="nav-link-container"><h2>Ayuda</h2></div></a>
+        </div>
+    </div>
+    <main>
+        {% block content %} {% endblock %} 
+    </main>
+    <div id="space">
+    </div>
+</body>
+</html>

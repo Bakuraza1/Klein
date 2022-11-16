@@ -1,0 +1,44 @@
+{% extends "nav.html" %}
+{% load static %}
+
+
+    {% block content %}
+    <div id="Graficador">
+    <h1 id="G-title">Graficador</h1>
+    <div id="G-text-container">
+    <p id="G-text"> En esta seccion podras graficar funciones, simpemente se poner la funcion como parametro y se obtendra la grafica. Para dudas con la sintaxis revisar 
+        la <a style="color:blue" href="https://mauriciopoppe.github.io/function-plot/">documentacion </a>
+    </p>
+    </div>
+    <form id="G-form" method="post">      
+        {% csrf_token %}
+        <input type="text" name="funcion" value={{fun.0|safe}}  required></input><br>
+        <button id="G-send" type="submit" class="send">Graficar</button>
+    </form>
+    <div id="graph"></div>
+    </div>
+
+    <script>
+
+
+        functionPlot({
+          target: "#graph",
+          width: 1200,
+          height: 800,
+          yAxis: { domain: [-1, 9] },
+          grid: true,
+          data: [
+            {
+              fn:{{fun|safe}}[0],
+              derivative: {
+                fn: "2 * x",
+                updateOnMouseMove: true
+              }
+            }
+          ]
+        });
+        
+    </script>
+    {% endblock %}
+
+    
