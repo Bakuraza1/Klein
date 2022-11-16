@@ -21,7 +21,7 @@ from M import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.test, name="test"),
+    path('', views.welcome, name="welcome"),
     path('gtest/', views.gtest, name="gtest"),
     path('welcome/', views.welcome, name="welcome"),
     path('metodos/', views.metodos, name="metodos"),

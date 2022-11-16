@@ -51,12 +51,12 @@
     padding: 5px 10px 5px 10px;
 }
 
-.M-name-container:hover{
-    background-color: #348D8F;
+.M-name-container:hover > .Method-title{
+    color: white;
 }
 
-.Method-title:hover{
-    color: white;
+.M-name-container:hover{
+    background-color: #348D8F;
 }
 
 .M-name-container{
