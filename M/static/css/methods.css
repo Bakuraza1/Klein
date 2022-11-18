@@ -187,3 +187,10 @@ input[type=submit]{
     height: 20px;
     font-size: 15px;
 }
+
+#Spline-form{
+    justify-self:center;
+     display: flex; 
+     flex-direction: column; 
+     justify-content: center;
+}

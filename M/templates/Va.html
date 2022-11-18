@@ -3,5 +3,42 @@
 
 
     {% block content %}
-    <h1 id="M-title">Vandermonde</h1>
+
+    <div id="Metodos">
+        <h1 id="M-title">Vandermonde</h1>
+        <div id="M-container">
+            <div id="M-div">
+                <h2 id="f-Title">Parametros</h2>
+                <div id="input-container-Matrix">
+                    <form method="post"  style="justify-self:center">
+                        {% csrf_token %}
+                        <p class="form-p">Numero de puntos: </p><input type="number" class="f-input" value="{{n}}" name="number">
+                        <input class="send" type="submit" name="submit" value="Actualizar" >
+                    </form>
+                    <form method="post"  style="justify-self:center">
+                        {% csrf_token %}
+                        <div id="M2-form">
+                            <div id="vector">
+                                <p class="form-p">X:</p>
+                                {% for i in number %}
+                                <input type="number" class="f-input" value="0" name="x{{i}}">
+                                {% endfor %}
+                            </div>
+                            <div id="vector">
+                                <p class="form-p">Y:</p>
+                                {% for i in number %}
+                                <input type="number" class="f-input" value="0" name="y{{i}}">
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <input class="send" type="submit" name="submit" value="Completado" >
+                    </form>
+                </div>
+            </div>
+                    
+            <div id="resultado">
+                <h2 id="f-Title">Resultado</h2>
+            </div>
+        </div>
+    </div>
     {% endblock %}

@@ -18,10 +18,12 @@
 </head>
 <body>
     <div id="nav-bar">
+        <a href="{% url 'welcome' %}" class="nav-link">
         <div class="container">
             <img id="icon" src="{% static 'images/Klein.png' %}">
             <h1 id="title">Klein</h1>
         </div>
+    </a>
         <div class="container">
             <a href="{% url 'metodos' %}" class="nav-link"><div class="nav-link-container"><h2>Metodos</h2></div></a>
             <a href="{% url 'graficador' %}" class="nav-link"><div class="nav-link-container"><h2>Graficador</h2></div></a>

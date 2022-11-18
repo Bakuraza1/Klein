@@ -107,13 +107,25 @@ def IT(request):
     return render(request, "IT.html",{'number': range(0,number), 'n': number})
 
 def Va(request):
-    return render(request, "Va.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "Va.html",{'number': range(0,number), 'n': number})
 
 def NDD(request):
-    return render(request, "NDD.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "NDD.html",{'number': range(0,number), 'n': number})
 
 def LA(request):
-    return render(request, "LA.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "LA.html",{'number': range(0,number), 'n': number})
 
 def SP(request):
-    return render(request, "sp.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "sp.html",{'number': range(0,number), 'n': number})
