@@ -1,6 +1,7 @@
 html, body{
     margin: 0;
     padding: 0;
+    background-color: rgba(253, 241, 226, 0.767);
 }
 #nav-bar{
     margin: 0;

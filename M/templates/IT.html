@@ -3,5 +3,79 @@
 
 
     {% block content %}
-    <h1 id="M-title">Metodos Iterativos</h1>
+    <div id="Metodos">
+        <h1 id="M-title">Metodos Iterativos</h1>
+        <div id="M-container">
+            
+            <div id="M-div">
+                <h2 id="f-Title">Parametros</h2>
+                <div id="input-container-Matrix">
+                    <form method="post"  style="justify-self:center">
+                        {% csrf_token %}
+                        <p class="form-p">Tamaño matriz (nxn): </p><input type="number" class="f-input" value="{{n}}" name="number">
+                        <input class="send" type="submit" name="submit" value="Actualizar" >
+                    </form>
+                    <form method="post"  style="justify-self:center">
+                        {% csrf_token %}
+                        <div id="M2-form">
+                            <div id="Matriz">
+                                <p class="form-p">Matriz:</p>
+                                {% for i in number %}
+                                <div class="row">
+                                    {% for j in number %}
+                                    <input type="number" class="f-input" value="0" name="m{{i}}{{j}}">
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div id="vector">
+                                <p class="form-p">Vector:</p>
+                                {% for i in number %}
+                                <input type="number" class="f-input" value="0" name="v{{i}}">
+                                {% endfor %}
+                            </div>
+                            <div id="x0">
+                                <p class="form-p">X0:</p>
+                                {% for i in number %}
+                                <input type="number" class="f-input" value="0" name="x{{i}}">
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div id="it-form">
+                            <div>
+                                <p class="form-p">Metodo: </p>
+                                <select name="fecha" id="metodo">
+                                    <option selected disabled>Elija metodo</option>
+                                    <option value="J">Jacobi</option>
+                                    <option value="G">Gauss-Seidel</option>
+                                    <option value="S">SOR</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p class="form-p">Norma: </p>
+                                <select name="fecha" id="norma">
+                                    <option selected disabled>Elija norma</option>
+                                    <option value="inf">infinito</option>
+                                    <option value="1">uno</option>
+                                    <option value="2">dos</option>
+                                    <option value="3">tres</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p class="form-p">Tolerancia: </p><input type="text" class="f-input2" placeholder="X^3" name="tol">
+                            </div>
+                            <div>
+                                <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input2" placeholder="X^3" name="niter">
+                            </div>
+                        </div>
+                        <input class="send" type="submit" name="submit" value="Completado" >
+                    </form>
+                </div>
+            </div>
+                    
+            <div id="resultado">
+                <h2 id="f-Title">Resultado</h2>
+            </div>
+        </div>
+    </div>
     {% endblock %}

@@ -3,5 +3,35 @@
 
 
     {% block content %}
-    <h1 id="M-title">Secante</h1>
+
+    <div id="Metodos">
+        <h1 id="M-title">Secante</h1>
+        <div id="M-container">
+            <form method="post" id="M-form">
+                <h2 id="f-Title">Parametros</h2>
+                {% csrf_token %}
+                <div id="input-container">
+                    <div>
+                        <p class="form-p">Funcion f: </p><input type="text" class="f-input" placeholder="X^3" name="funcion">
+                    </div>
+                    <div>
+                        <p class="form-p">Valor inicial x0: </p><input type="text" class="f-input" placeholder="X^3" name="x0">
+                    </div>
+                    <div>
+                        <p class="form-p">Valor inicial x1: </p><input type="text" class="f-input" placeholder="X^3" name="x1">
+                    </div>
+                    <div>
+                        <p class="form-p">Tolerancia: </p><input type="text" class="f-input" placeholder="X^3" name="tol">
+                    </div>
+                    <div>
+                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" placeholder="X^3" name="niter">
+                    </div>
+                </div>
+                <input class="send" type="submit" name="submit" value="Completado" >
+            </form>
+            <div id="resultado">
+                <h2 id="f-Title">Resultado</h2>
+            </div>
+        </div>
+    </div>
     {% endblock %}

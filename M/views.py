@@ -9,6 +9,8 @@ from django.urls import reverse
 
 # Create your views here.
 
+number = 3
+
 def test(request):
     return render(request, "nav.html")
 
@@ -51,31 +53,58 @@ def RM(request):
     return render(request, "RM.html")
 
 def EG1(request):
-    return render(request, "EG1.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "EG1.html",{'number': range(0,number), 'n': number})
 
 def EG2(request):
-    return render(request, "EG2.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "EG2.html",{'number': range(0,number), 'n': number})
 
 def EG3(request):
-    return render(request, "EG3.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "EG3.html",{'number': range(0,number), 'n': number})
 
 def LUS(request):
-    return render(request, "LUS.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "LUS.html",{'number': range(0,number), 'n': number})
 
 def LUP(request):
-    return render(request, "LUP.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "LUP.html",{'number': range(0,number), 'n': number})
 
 def Cr(request):
-    return render(request, "Cr.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "Cr.html",{'number': range(0,number), 'n': number})
 
 def DO(request):
-    return render(request, "DO.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "DO.html",{'number': range(0,number), 'n': number})
 
 def CH(request):
-    return render(request, "CH.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "CH.html",{'number': range(0,number), 'n': number})
 
 def IT(request):
-    return render(request, "IT.html")
+    global number
+    if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
+        number = int(request.POST["number"])
+    return render(request, "IT.html",{'number': range(0,number), 'n': number})
 
 def Va(request):
     return render(request, "Va.html")
