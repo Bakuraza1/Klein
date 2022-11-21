@@ -24,7 +24,7 @@
                                 {% for i in number %}
                                 <div class="row">
                                     {% for j in number %}
-                                    <input type="number" class="f-input" value="0" name="m{{i}}{{j}}">
+                                    <input type="number" class="f-input" style="width:40px" value="0" name="m{{i}}{{j}}">
                                     {% endfor %}
                                 </div>
                                 {% endfor %}
@@ -32,7 +32,7 @@
                             <div id="vector">
                                 <p class="form-p">Vector:</p>
                                 {% for i in number %}
-                                <input type="number" class="f-input" value="0" name="v{{i}}">
+                                <input type="number" class="f-input" style="width:40px" value="0" name="v{{i}}">
                                 {% endfor %}
                             </div>
                         </div>
@@ -41,8 +41,32 @@
                 </div>
             </div>
                     
-            <div id="resultado">
+            <div id="resultadom">
                 <h2 id="f-Title">Resultado</h2>
+                {% if flag %}
+                {%else%}
+                {% if res|length > 0 %}
+                {% for element in res %}
+                
+                <table id="tabla" bgcolor="black" >
+                    <h1 id="f-Title"> STEP {{ forloop.counter }}</h1>
+                    {% for row in element%}
+                    <tr align="center" bgcolor="#345E8F" >
+                            {% for number in row %}
+                                <td style="color:white;">{{number}}</td>
+                            {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+                </table>
+                <h1 id="f-Title"> Al aplicar sustitucion tenemos:</h1>
+                {% for i in res2 %}
+                    <h2>x{{forloop.counter}} = {{i}}</h2>
+                {%endfor%}
+                {% else %}
+                <h1 id="f-Title">No se ha encontrado respuesta</h1>
+                {% endif%}
+                {%endif%}
             </div>
         </div>
     </div>

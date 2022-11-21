@@ -11,22 +11,43 @@
                 {% csrf_token %}
                 <div id="input-container">
                     <div>
-                        <p class="form-p">Funcion: </p><input type="text" class="f-input" placeholder="X^3" name="funcion">
+                        <p class="form-p">Funcion: </p><input type="text" class="f-input" value="math.log(math.sin(x)**2+1)-(1/2)" value="{{arg.0}}" name="funcion">
                     </div>
                     <div>
-                        <p class="form-p">Valor Inicial: </p><input type="text" class="f-input" placeholder="X^3" name="Valor-i">
+                        <p class="form-p">Valor Inicial: </p><input type="text" class="f-input" value="-3" value="{{arg.1}}" name="Valor-i">
                     </div>
                     <div>
-                        <p class="form-p">Delta: </p><input type="text" class="f-input" placeholder="X^3" name="delta">
+                        <p class="form-p">Delta: </p><input type="text" class="f-input" value="0.5" value="{{arg.2}}" name="delta">
                     </div>
                     <div>
-                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" placeholder="X^3" name="niter">
+                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" value="100" value="{{arg.3}}" name="niter">
                     </div>
                 </div>
                 <input class="send" type="submit" name="submit" value="Completado" >
             </form>
             <div id="resultado">
                 <h2 id="f-Title">Resultado</h2>
+                {% if flag %}
+
+                {%else%}
+                {% if res|length > 0 %}
+                <h2 id="f-Title">Se han encontrado raices en los siguientes intervalos</h2>
+                <table id="tabla" bgcolor="grey" >
+                    <tr id="res-campos" bgcolor="#345E8F">
+                        <th style="color: white">Iteracion</th>
+                        <th style="color: white">Rango</th>
+                    </tr>
+                    {% for element in res %}
+                    <tr bgcolor="lightgrey" align="center">
+                        <td>{{element.0}}</td>
+                        <td>{{element.1}}, {{element.2}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                <h1 id="f-Title">No se han encontrado raices</h1>
+                {% endif%}
+                {%endif%}
             </div>
         </div>
     </div>

@@ -82,7 +82,9 @@ a{
     border-radius: 10px;
     background-color: white;
     width: 900px;
+    margin: auto;
     margin-bottom: 30px;
+
 }
 
 #M2-form{
@@ -128,6 +130,7 @@ input[type=submit]{
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+    justify-content: center;
 }
 
 .send{
@@ -193,4 +196,23 @@ input[type=submit]{
      display: flex; 
      flex-direction: column; 
      justify-content: center;
+}
+
+#tabla{
+    margin: auto;
+    width: 200px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+}
+
+#resultadom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-table{
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
 }

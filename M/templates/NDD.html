@@ -1,6 +1,6 @@
 {% extends "nav.html" %}
 {% load static %}
-
+{% load util %}
 
     {% block content %}
 
@@ -21,13 +21,13 @@
                             <div id="vector">
                                 <p class="form-p">X:</p>
                                 {% for i in number %}
-                                <input type="number" class="f-input" value="0" name="x{{i}}">
+                                <input type="number" class="f-input" style="width:40px" value="0" name="x{{i}}">
                                 {% endfor %}
                             </div>
                             <div id="vector">
                                 <p class="form-p">Y:</p>
                                 {% for i in number %}
-                                <input type="number" class="f-input" value="0" name="y{{i}}">
+                                <input type="number" class="f-input" style="width:40px" value="0" name="y{{i}}">
                                 {% endfor %}
                             </div>
                         </div>
@@ -36,9 +36,45 @@
                 </div>
             </div>
                     
-            <div id="resultado">
+            <div id="resultadom">
                 <h2 id="f-Title">Resultado</h2>
+                {% if flag %}
+                {%else%}
+                {% if res|length > 0 %}
+                    <table id="tabla" bgcolor="black" >
+                        <tr align="center" bgcolor="grey">
+                            <th>n</th>
+                            <th> Xi</th>
+                            <th> F[Xi]</th>
+                            {% for i in number %}
+                                {% if forloop.counter0 != 0 %}
+                                    <td>{{i}}</td>   
+                                {% endif %}
+                                
+                            {% endfor %}
+                        </tr>
+                        {% for row in res %}
+                        <tr align="center" bgcolor="grey">
+                            <td> {{forloop.counter0}}</td>
+                            <td> {{x|return_item:forloop.counter0}}</td>
+                            {% for number in row %}
+                                <td>{{number}}</td>    
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                <h1 id="f-Title"> Coeficiente Polinomicos</h1>
+                <p>{{res2}}</p>
+                <h1 id="f-Title"> El polinomio de Newton es:</h1>
+                <p>
+                {{r}}
+                </p>
+                {% else %}
+                <h1 id="f-Title">No se ha encontrado respuesta</h1>
+                {% endif%}
+                {%endif%}
             </div>
+        </div>
         </div>
     </div>
     {% endblock %}

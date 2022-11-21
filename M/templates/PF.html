@@ -11,25 +11,53 @@
                 {% csrf_token %}
                 <div id="input-container">
                     <div>
-                        <p class="form-p">Funcion: </p><input type="text" class="f-input" placeholder="X^3" name="funcion">
+                        <p class="form-p">Funcion: </p><input type="text" class="f-input" value="math.log(math.sin(x)**2+1)-(1/2)" name="funcion">
                     </div>
                     <div>
-                        <p class="form-p">Intervalo Inferior: </p><input type="text" class="f-input" placeholder="X^3" name="a">
+                        <p class="form-p">Intervalo Inferior: </p><input type="text" class="f-input" value="0"  name="a">
                     </div>
                     <div>
-                        <p class="form-p">Intervalo Superior: </p><input type="text" class="f-input" placeholder="X^3" name="b">
+                        <p class="form-p">Intervalo Superior: </p><input type="text" class="f-input" value="1"  name="b">
                     </div>
                     <div>
-                        <p class="form-p">Tolerancia: </p><input type="text" class="f-input" placeholder="X^3" name="tol">
+                        <p class="form-p">Tolerancia: </p><input type="text" class="f-input" value="1e-7" name="tol">
                     </div>
                     <div>
-                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" placeholder="X^3" name="niter">
+                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" value="100" name="niter">
                     </div>
                 </div>
                 <input class="send" type="submit" name="submit" value="Completado" >
             </form>
             <div id="resultado">
                 <h2 id="f-Title">Resultado</h2>
+                {% if flag %}
+                {%else%}
+                {% if res|length > 0 %}
+                <table id="tabla" bgcolor="grey" >
+                    <tr id="res-campos" bgcolor="#345E8F">
+                        <th style="color: white">Iteracion</th>
+                        <th style="color: white">a</th>
+                        <th style="color: white">xm</th>
+                        <th style="color: white">b</th>
+                        <th style="color: white">f(xm)</th>
+                        <th style="color: white">E</th>
+                    </tr>
+                    {% for element in res %}
+                    <tr bgcolor="lightgrey" align="left">
+                        <td>{{element.0}}</td>
+                        <td>{{element.1}}</td>
+                        <td>{{element.2}}</td>
+                        <td>{{element.3}}</td>
+                        <td>{{element.4}}</td>
+                        <td>{{element.5}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h1 id="f-Title">{{final}}</h1>
+                {% else %}
+                <h1 id="f-Title">No se han encontrado raices</h1>
+                {% endif%}
+                {%endif%}
             </div>
         </div>
     </div>

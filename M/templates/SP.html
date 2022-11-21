@@ -20,21 +20,21 @@
                             <div id="vector">
                                 <p class="form-p">X:</p>
                                 {% for i in number %}
-                                <input type="number" class="f-input" value="0" name="x{{i}}">
+                                <input type="number" class="f-input" style="width:40px" value="0" name="x{{i}}">
                                 {% endfor %}
                             </div>
                             <div id="vector">
                                 <p class="form-p">Y:</p>
                                 {% for i in number %}
-                                <input type="number" class="f-input" value="0" name="y{{i}}">
+                                <input type="number" class="f-input" style="width:40px" value="0" name="y{{i}}">
                                 {% endfor %}
                             </div>
                         </div>
                         <select name="metodo" id="metodo" style="margin-top: 20px">
                             <option selected disabled>Elija metodo</option>
-                            <option value="L">Lineal</option>
-                            <option value="C2">Cuadratico</option>
-                            <option value="C3">Cubico</option>
+                            <option value="1">Lineal</option>
+                            <option value="2">Cuadratico</option>
+                            <option value="3">Cubico</option>
                         </select>
                         <input class="send" type="submit" name="submit" value="Completado" >
                     </form>
@@ -43,6 +43,43 @@
                     
             <div id="resultado">
                 <h2 id="f-Title">Resultado</h2>
+                {% if flag %}
+                {%else%}
+                {% if ans|length > 0 %}
+                <h2 id="f=title"> Coeficientes </h2>
+                <table id="tabla" bgcolor="black" >
+                    <tr align="center" bgcolor="grey">
+                        <th>n</th>
+                    {% for column in res.0 %}
+                        <th>Coeficiente{{forloop.counter}}</th>
+                    {% endfor %}
+                    </tr>
+                    {% for row in res %}
+                    <tr align="center" bgcolor="grey">
+                        <td>{{forloop.counter}}</td>
+                        {% for number in row %}
+                            <td>{{number}}</td>    
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h2 id="f=title"> Tracers </h2>
+                <table id="tabla" bgcolor="black" >
+                    <tr align="center" bgcolor="grey">
+                        <th>n</th>
+                        <th>Tracers</th>
+                    </tr>
+                    {% for row in ans %}
+                    <tr align="center" bgcolor="grey">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{row}}</td>    
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                <h1 id="f-Title">No se ha encontrado respuesta</h1>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
