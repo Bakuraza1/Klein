@@ -108,9 +108,28 @@ Tabla que mostrara los intervalos donde se encontraron raíces, dicha tabla tend
 ### Bisección
 **Entradas:**
 
+- Función: función a utilizar
+- Intervalo inferior: intervalo inferior
+- Intervalo Superior: intervalo superior
+- Tolerancia: Tolerancia en D.C
+- Iteraciones máximas: Iteraciones máximas
+
+**Salida:**
+Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
+
+- Iteración: Numero de la fila
+- a: valor de la izquierda
+- xm: a+b/2
+- b: valor de la derecha
+- f(xm): función evaluada en xm
+- E: error absoluto
+
+### Regla Falsa
+**Entradas:**
+
 - Función: funcion a utilizar
-- Intervalo inferior: valor inicial del metodo
-- Intervalo Superior: tamaño de los intervalos
+- Intervalo inferior: intervalo inferior
+- Intervalo Superior: intervalo superior
 - Tolerancia: Tolerancia en D.C
 - Iteraciones máximas: Iteraciones máximas
 
@@ -122,4 +141,91 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 - xm: a+b/2
 - b: valor de la derecha
 - f(xm): funcion evaluada en xm
+- E: error absoluto
+
+### Punto fijo
+**Entradas:**
+
+- Función: función a utilizar
+- Función g: función f sobrescrita como x = ...
+- Valor inicial: Valor inicial
+- Tolerancia: Tolerancia en D.C
+- Iteraciones máximas: Iteraciones máximas
+
+**Salida:**
+Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
+
+- Iteración: Numero de la fila
+- x: valor de x
+- f(x): función f evaluada en x
+- g(x): función g evaluada en x
+- E: error absoluto
+
+### Newton-Raphson
+**Entradas:**
+
+- Función: función a utilizar
+- Función f': primera derivada de f
+- Valor inicial: Valor inicial
+- Tolerancia: Tolerancia en D.C
+- Iteraciones máximas: Iteraciones máximas
+
+**Salida:**
+Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
+
+- Iteración: Numero de la fila
+- x: valor de x
+- f(x): función f evaluada en x
+- E: error absoluto
+
+### Secante
+**Entradas:**
+
+- Función: función a utilizar
+- Valor inicial x0: Valor inicial de x0
+- Valor inicial x1: Valor inicial de x1
+- Tolerancia: Tolerancia en D.C
+- Iteraciones máximas: Iteraciones máximas
+
+**Salida:**
+Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
+
+- Iteración: Numero de la fila
+- x: valor de x
+- f(x): función f evaluada en x
+- E: error absoluto
+
+### Raices multiples
+**Entradas:**
+
+- Función f: función a utilizar
+- Función f': primera derivada de f
+- Función f'': segunda derivada de f
+- Valor inicial x0: Valor inicial de x0
+- Tolerancia: Tolerancia en D.C
+- Iteraciones máximas: Iteraciones máximas
+
+**Salida:**
+Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
+
+- Iteración: Numero de la fila
+- x: valor de x
+- f(x): función f evaluada en x
+- E: error absoluto
+
+## Métodos para la solución de sistemas de ecuaciones 
+### Eliminación Gaussiana Simple
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
+
+- Iteración: Numero de la fila
+- x: valor de x
+- f(x): función f evaluada en x
 - E: error absoluto
