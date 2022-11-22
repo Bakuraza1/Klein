@@ -69,7 +69,7 @@ A continuación  se mostraran algunos ejemplos de funciones bien definidas.
 
 ## Cosas a tener en cuenta para la ejecución de los métodos:
 ### Sintaxis de funciones para los metodos
-Para el ingreso de las funciones en los diferentes metodos se utiliza una sintaxis diferente a la de el graficador. 
+Para el ingreso de las funciones en los diferentes métodos se utiliza una sintaxis diferente a la de el graficador. 
 
 Estas funciones se deben escribir en la sintaxis que se escribirían en Python, de no tener conocimiento de esta sintaxis recomendamos leer la siguiente documentación: https://docs.python.org/es/3/library/math.html
 
@@ -81,6 +81,7 @@ A continuación se agregara una tabla mostrando funciones bien definidas, compar
 | log(x+3)/8| math.log(x+3)/8|
 |sin(x)| math.sin(x)|
 |cos(x)|math.cos(x) |
+Tener en cuenta que las funciones se deben escribir en términos de x (minúscula)
 
 ### Manejo del error
 Para los diferentes métodos se utilizo el error absoluto para los diferentes cálculos. Teniendo esto en cuenta, en las diferentes salidas que muestren el error se debe entender que este error se refiere al error absoluto.
@@ -229,3 +230,159 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 - x: valor de x
 - f(x): función f evaluada en x
 - E: error absoluto
+
+### Eliminación Gaussiana Simple
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+- Primero se mostraran los pasos realizados en la eliminacion, estos pasos se mostraran como matrices 
+- Posteriormente se mostrara los resultados luego de aplicar sustitución regresiva
+
+### Eliminación Gaussiana Pivote Parcial
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+- Primero se mostraran los pasos realizados en la eliminacion, estos pasos se mostraran como matrices 
+- Posteriormente se mostrara los resultados luego de aplicar sustitución regresiva
+
+
+### Eliminación Gaussiana Pivote Total
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+- Primero se mostraran los pasos realizados en la eliminacion, estos pasos se mostraran como matrices 
+- Posteriormente se mostrara los resultados luego de aplicar sustitución regresiva
+
+
+
+### Factorización Directa LU simple
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+- Primero se mostraran los pasos realizados en la factorización, en cada paso se mostraran las matrices U, L y M
+- Posteriormente se mostrara los resultados luego de aplicar sustitución regresiva
+
+### Croult
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+- Primero se mostraran los pasos realizados en la factorización, en cada paso se mostraran las matrices U, L y M
+- Posteriormente se mostrara los resultados luego de aplicar sustitución regresiva y progresiva
+
+### Doolittle
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+- Primero se mostraran los pasos realizados en la factorización, en cada paso se mostraran las matrices U, L y M
+- Posteriormente se mostrara los resultados luego de aplicar sustitución regresiva y progresiva
+
+### Cholesky
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+
+
+**Salida:**
+- Primero se mostraran los pasos realizados en la factorización, en cada paso se mostraran las matrices U, L y M
+- Posteriormente se mostrara los resultados luego de aplicar sustitución regresiva y progresiva
+
+### Metodos Iterativos
+**Entradas:**
+
+- Tamaño Matriz (n x n): tamaño de la matriz y del vector
+- Matriz: Matriz que se utilizara (A)
+- Vector: Vector de respuestas (b)
+- x0: Vector de valores iniciales
+- Metodo: Jacobi, Seidel o sor
+- Tolerancia: Tolerancia en D.C
+- Iteraciones Maximas: Numero de iteraciones Maximas
+- w (sor): numero w del metodo de sor, este campo solo se debe llenar si se ejecutara sor
+
+
+**Salida:**
+- Primero se mostrara la matriz T, el vector C y el radio espectral calculado a partir de T
+- Posteriormente se mostraran los pasos mostrando por cada uno una matriz con: n, vector de respuestas, error
+
+## Metodos de interpolacion
+### Vandermone
+
+**Entradas:**
+- Tamaño vectores(n): tamaño del vector
+- Vector x: Puntos en x
+- Vector y: puntos en y
+
+
+**Salida:**
+- Matriz de vandermone 
+-  Coeficientes polinomicos
+- Polinomio de vandermonde
+
+### Newton Diferencias Divididas
+
+**Entradas:**
+- Tamaño vectores(n): tamaño del vector
+- Vector x: Puntos en x
+- Vector y: puntos en y
+
+
+**Salida:**
+- tabla de diferencias divididas
+- Coeficientes polinomicos
+- Polinomio de newton
+
+### Lagrange
+
+**Entradas:**
+- Tamaño vectores(n): tamaño del vector
+- Vector x: Puntos en x
+- Vector y: puntos en y
+
+
+**Salida:**
+- Polinomios de interpolación
+- Polinomio de Lagrange
+
+### Spline
+
+**Entradas:**
+- Tamaño vectores(n): tamaño del vector
+- Vector x: Puntos en x
+- Vector y: puntos en y
+- Método: lineal, cuadrático o cubico
+
+
+**Salida:**
+- Coeficientes
+- Polinomios
