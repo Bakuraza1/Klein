@@ -49,7 +49,7 @@
                 {% for element in res %}
                 
                 <table id="tabla" bgcolor="black" >
-                    <h1 id="f-Title"> STEP {{ forloop.counter }}</h1>
+                    <h1 id="f-Title"> Paso {{ forloop.counter }}</h1>
                     {% for row in element%}
                     <tr align="center" bgcolor="#345E8F">
                             {% for number in row %}
@@ -59,7 +59,7 @@
                     {% endfor %}
                     {% endfor %}
                 </table>
-                <h1 id="f-Title"> Al aplicar sustitucion tenemos:</h1>
+                <h1 id="f-Title"> Al aplicar sustitucion regresiva tenemos:</h1>
                 {% for i in res2 %}
                     <h2>x{{forloop.counter}} = {{i}}</h2>
                 {%endfor%}

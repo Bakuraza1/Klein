@@ -652,6 +652,138 @@ def cholesky_factorization(a, b):
     return res, regressive_substitution(to_aug(upper_tri, z))
 
 
+def seidel(a, b, init, tol, n, err_type="abs"):
+    table = []
+    assert a.shape[0] == a.shape[1]
+    assert a.shape[0] == len(b)
+    assert len(init) == len(b)
+    res = []
+    error = float("inf")
+    xn = init
+    i = 0
+
+    table.append(i)
+    table.append(xn)
+    table.append("")
+    table.append("")
+    table.append("newline")
+    res.append([i, xn.tolist(), "nan"])
+
+    while error > tol and i < n:
+        x, abs_err, rel_err = next_iter(a, b, xn)
+        xn = x
+
+        if err_type == "rel":
+            error = rel_err
+        else:
+            error = abs_err
+
+        i += 1
+
+        res.append([i, xn.tolist(), abs_err])
+
+    return xn, res
+
+
+def next_iter(a, b, prev_x):
+    size = a.shape[0]
+    x = np.copy(prev_x)
+
+    for i in range(0, size):
+        d = a[i][i]
+        accum = 0
+        for j in range(0, size):
+            if j != i:
+                accum += a[i][j] * x[j]
+        x[i] = (b[i] - accum) / d
+
+    errs = abs(x - prev_x)
+    abs_err = max(errs)
+    rel_err = max(errs / abs(x))
+
+    return x, abs_err, rel_err
+
+
+def jacobi(a, b, init, tol, n, err_type="abs"):
+    table = []
+    assert a.shape[0] == a.shape[1]
+    assert a.shape[0] == len(b)
+    assert len(init) == len(b)
+    res = []
+    error = float("inf")
+
+    xn = init
+    i = 0
+
+    table.append(i)
+    table.append(xn)
+    table.append("")
+    table.append("")
+    table.append("newline")
+    res.append([i, xn.tolist(), "nan"])
+    while error > tol and i < n:
+        x, abs_err, rel_err = next_iter2(a, b, xn)
+        xn = x
+
+        if err_type == "rel":
+            error = rel_err
+        else:
+            error = abs_err
+
+        i += 1
+
+        res.append([i, xn.tolist(), abs_err])
+        table.append("newline")
+    return xn, res
+
+
+def next_iter2(a, b, prev_x):
+    size = a.shape[0]
+    x = np.zeros(size, dtype=np.float64)
+
+    for i in range(0, size):
+        d = a[i][i]
+        accum = 0
+        for j in range(0, size):
+            if j != i:
+                accum += a[i][j] * prev_x[j]
+        x[i] = (b[i] - accum) / d
+
+    errs = abs(x - prev_x)
+    abs_err = max(errs)
+    rel_err = max(errs / abs(x))
+
+    return x, abs_err, rel_err
+
+
+def sor(A,x0,b,Tol,niter,w):
+    c=0
+    E = []
+    resultado = []
+    error=Tol+1
+    E.append(error)
+    D = np.diagonal(A) * np.identity(len(x0))
+    L = -np.tril(A,-1)
+    U = -np.triu(A,+1)
+    resultado.append([c,x0,error])
+    while error>Tol and c<niter:
+        T = np.dot(np.linalg.inv(D-(w*L)),((1-w)*D+(w*U)))
+        C = w * np.dot(np.linalg.inv(D-w*L),b)
+        x1=np.dot(T,x0)+C
+        E.append(np.linalg.norm(x1-x0))
+        error=E[c]
+        x0=x1
+        c=c+1
+        resultado.append([c,x0.tolist(),error])
+        if error < Tol:
+            s=x0
+            n=c
+            return [resultado, "Solucion al sistema con una tolerancia de "+str(Tol)+" es "+str(s)]
+    s=x0
+    n=c
+    return [resultado, "Fracasó"+str(niter)]
+
+
 def vandermonde_method(x,y):
         matrix = []
         coeficientes = []

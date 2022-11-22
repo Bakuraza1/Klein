@@ -44,25 +44,25 @@
                 <div style="display:flex; align-items: center; column-gap: 10px;">
                     <table id="tabla" bgcolor="black" >
                         {% for row in res %}
-                        <tr align="center" bgcolor="grey">
+                        <tr align="center" bgcolor="#345E8F">
                             {% for number in row %}
-                                <td>{{number}}</td>    
+                                <td style="color:white;">{{number}}</td>    
                             {% endfor %}
                         </tr>
                         {% endfor %}
                     </table>
                     <table  bgcolor="black" class="sub-table">
                         {% for row in res %}
-                        <tr align="center" bgcolor="grey">
-                            <td> a{{forloop.counter}} </td>
+                        <tr align="center" bgcolor="#345E8F">
+                            <td style="color:white;"> a{{forloop.counter}} </td>
                         </tr>
                         {% endfor %}
                     </table>
                     =
                     <table  bgcolor="black" class="sub-table">
                         {% for element in y %}
-                        <tr align="center" bgcolor="grey">
-                            <td> {{element}} </td>
+                        <tr align="center" bgcolor="#345E8F">
+                            <td style="color:white;"> {{element}} </td>
                         </tr>
                         {% endfor %}
                     </table>

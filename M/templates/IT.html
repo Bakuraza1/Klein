@@ -67,14 +67,59 @@
                             <div>
                                 <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input2" placeholder="X^3" name="niter">
                             </div>
+                            <div>
+                                <p class="form-p">W(sor):</p><input type="text" class="f-input2" placeholder="X^3" name="w">
+                            </div>
                         </div>
                         <input class="send" type="submit" name="submit" value="Completado" >
                     </form>
                 </div>
             </div>
                     
-            <div id="resultado">
+            <div id="resultadom">
                 <h2 id="f-Title">Resultado</h2>
+                {% if flag %}
+                {%else%}
+                {% if res|length > 0 %}
+                <h1 id="f-Title"> T </h1>
+                <table id="tabla" bgcolor="black" >
+                    {% for row in T %}
+                    <tr align="center" bgcolor="#345E8F">
+                        {% for number in row %}
+                            <td style="color:white;">{{number}}</td>    
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h1 id="f-Title"> C </h1>
+                <table id="tabla" bgcolor="black" >
+                    {% for row in C %}
+                    <tr align="center" bgcolor="#345E8F">
+                        <td style="color:white;">{{row}}</td>    
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h1 id="f-Title"> El radio espectral es {{R}}</h1>
+                {% for step in res %}
+                <h1 id="f-Title"> Paso {{ forloop.counter  }}</h1>
+                <table id="tabla" bgcolor="black" >
+                    <tr align="center" bgcolor="#345E8F">
+                        <th style="color:white;">n</th>
+                        <th style="color:white;"></th>
+                        <th style="color:white;">error</th>
+                    </tr>
+                    <tr align="center" bgcolor="lightgrey">
+                    {% for element in step %}
+                                <td >{{element}}</td>    
+                    {% endfor %}
+                </tr>
+                </table>
+                    
+                {% endfor %}
+                {% else %}
+                <h1 id="f-Title">No se ha encontrado respuesta</h1>
+                {% endif%}
+                {%endif%}
             </div>
         </div>
     </div>

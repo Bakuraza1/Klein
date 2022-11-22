@@ -42,19 +42,19 @@
                 {%else%}
                 {% if res|length > 0 %}
                     <table id="tabla" bgcolor="black" >
-                        <tr align="center" bgcolor="grey">
-                            <th>n</th>
-                            <th> Xi</th>
-                            <th> F[Xi]</th>
+                        <tr align="center" bgcolor="#345E8F">
+                            <th style="color:white;">n</th>
+                            <th style="color:white;"> Xi</th>
+                            <th style="color:white;"> F[Xi]</th>
                             {% for i in number %}
                                 {% if forloop.counter0 != 0 %}
-                                    <td>{{i}}</td>   
+                                    <th style="color:white;">{{i}}</th>   
                                 {% endif %}
                                 
                             {% endfor %}
                         </tr>
                         {% for row in res %}
-                        <tr align="center" bgcolor="grey">
+                        <tr align="center" bgcolor="lightgrey">
                             <td> {{forloop.counter0}}</td>
                             <td> {{x|return_item:forloop.counter0}}</td>
                             {% for number in row %}

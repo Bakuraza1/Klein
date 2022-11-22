@@ -46,16 +46,16 @@
                 {% if flag %}
                 {%else%}
                 {% if ans|length > 0 %}
-                <h2 id="f=title"> Coeficientes </h2>
+                <h2 id="f=title" style="text-align:center"> Coeficientes </h2>
                 <table id="tabla" bgcolor="black" >
-                    <tr align="center" bgcolor="grey">
-                        <th>n</th>
+                    <tr align="center" bgcolor="#345E8F">
+                        <th style="color:white;">n</th>
                     {% for column in res.0 %}
-                        <th>Coeficiente{{forloop.counter}}</th>
+                        <th style="color:white;">Coeficiente{{forloop.counter}}</th>
                     {% endfor %}
                     </tr>
                     {% for row in res %}
-                    <tr align="center" bgcolor="grey">
+                    <tr align="center" bgcolor="lightgrey">
                         <td>{{forloop.counter}}</td>
                         {% for number in row %}
                             <td>{{number}}</td>    
@@ -63,14 +63,14 @@
                     </tr>
                     {% endfor %}
                 </table>
-                <h2 id="f=title"> Tracers </h2>
+                <h2 id="f=title" style="text-align:center"> Tracers </h2>
                 <table id="tabla" bgcolor="black" >
-                    <tr align="center" bgcolor="grey">
-                        <th>n</th>
-                        <th>Tracers</th>
+                    <tr align="center" bgcolor="#345E8F">
+                        <th style="color:white;">n</th>
+                        <th style="color:white;">Tracers</th>
                     </tr>
                     {% for row in ans %}
-                    <tr align="center" bgcolor="grey">
+                    <tr align="center" bgcolor="lightgrey">
                         <td>{{forloop.counter}}</td>
                         <td>{{row}}</td>    
                     </tr>

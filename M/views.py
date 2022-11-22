@@ -273,6 +273,36 @@ def IT(request):
     global number
     if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
         number = int(request.POST["number"])
+    if request.method=='POST' and (request.POST["submit"] == 'Completado'):
+        matrix = []
+        vector = []
+        x0 = []
+        for i in range(0, number):
+            vector.append(request.POST["v%(i)d" % {"i":i}])
+            x0.append(request.POST["x%(i)d" % {"i":i}])
+            matrix.append([])
+            for j in range(0,number):
+                matrix[i].append(request.POST["m%(i)d%(j)d" % {"i":i,"j": j}])
+        matrix = np.array(matrix).astype(np.float64)
+        vector = np.array(vector).astype(np.float64)
+        x0 = np.array(vector).astype(np.float64)
+        metodo = request.POST["metodo"]
+        norma = request.POST["norma"]
+        tol = float(request.POST["tol"])
+        niter = float(request.POST["niter"])
+        if metodo =='J':
+            sp = spectral(matrix,vector, 1, 0)
+            res = jacobi(matrix, vector, x0, tol, niter)[1]
+        elif metodo =='G':
+            sp = spectral(matrix,vector, 2, 0)
+            res = seidel(matrix, vector, x0, tol, niter)[1]
+        else:
+            w = float(request.POST["w"])
+            sp = spectral(matrix,vector, 3, w)  
+            res = sor(matrix, vector, x0, tol, niter, w)[0]
+        print(sp)
+        #print(res)
+        return render(request, "IT.html",{'number': range(0,number), 'n': number, 'res':res, 'T':sp[0], 'C': sp[1], 'R':sp[2]})
     return render(request, "IT.html",{'number': range(0,number), 'n': number})
 
 def Va(request):
@@ -315,12 +345,13 @@ def NDD(request):
                 r += '+' + str(i)
             else:
                 r += str(i)
-            for j in x[1:cont]:
+            for j in x[0:cont-1]:
+                print('hola')
+                print(j)
                 if (j*-1) > 0:
                     r += '(x+' + str(j*-1) +')'
                 else:
                     r += '(x' + str(j*-1) +')'
-        print(r)
         return render(request, "NDD.html",{'number': range(0,number), 'n': number, 'res':res['table'], 'res2':res['coef'], 'x':x.tolist(), 'na':len(res['table'][0]), 'r':r})
     return render(request, "NDD.html",{'number': range(0,number), 'n': number})
 
@@ -380,3 +411,29 @@ def get_super(x):
     super_s = "ᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿˢᵀᵁⱽᵂˣʸᶻᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖ۹ʳˢᵗᵘᵛʷˣʸᶻ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾"
     res = x.maketrans(''.join(normal), ''.join(super_s))
     return x.translate(res)
+
+
+def spectral(a,b, arg, w):
+    print(a)
+    print('b-----')
+    print(b)
+    print('D-----')
+    D = (np.diag(np.diag(a)))
+    print(D)
+    print('L-----')
+    L= (np.tril(a, -1)*-1)
+    print(L)
+    print('U-----')
+    U = (np.triu(a, 1)*-1)
+    print(U)
+    if arg == 1:
+        T = np.matmul(np.linalg.inv(D),(L+U))
+        C = np.matmul(np.linalg.inv(D),b)
+    elif arg == 2:
+        T = np.matmul((np.linalg.inv(D-L)),(U))
+        C = np.matmul((np.linalg.inv(D-L)),(b))
+    else:
+        T = np.matmul((np.linalg.inv(D-(w*L))),((1-w)*D + (w*U)))
+        C = np.matmul((w*np.linalg.inv(D-(w*L))),(b))
+    r = (np.amax(np.absolute(np.linalg.eigvals(T))))
+    return T.tolist(), C.tolist(), r
