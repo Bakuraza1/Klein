@@ -287,7 +287,6 @@ def IT(request):
         vector = np.array(vector).astype(np.float64)
         x0 = np.array(vector).astype(np.float64)
         metodo = request.POST["metodo"]
-        norma = request.POST["norma"]
         tol = float(request.POST["tol"])
         niter = float(request.POST["niter"])
         if metodo =='J':

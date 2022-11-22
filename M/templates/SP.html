@@ -46,7 +46,7 @@
                 {% if flag %}
                 {%else%}
                 {% if ans|length > 0 %}
-                <h2 id="f=title" style="text-align:center"> Coeficientes </h2>
+                <h2 id="f-Title" style="text-align:center"> Coeficientes </h2>
                 <table id="tabla" bgcolor="black" >
                     <tr align="center" bgcolor="#345E8F">
                         <th style="color:white;">n</th>
@@ -63,11 +63,11 @@
                     </tr>
                     {% endfor %}
                 </table>
-                <h2 id="f=title" style="text-align:center"> Tracers </h2>
+                <h2 id="f-Title" style="text-align:center"> Polinomios </h2>
                 <table id="tabla" bgcolor="black" >
                     <tr align="center" bgcolor="#345E8F">
                         <th style="color:white;">n</th>
-                        <th style="color:white;">Tracers</th>
+                        <th style="color:white;">Polinomio</th>
                     </tr>
                     {% for row in ans %}
                     <tr align="center" bgcolor="lightgrey">
