@@ -89,6 +89,9 @@ Para los diferentes métodos se utilizo el error absoluto para los diferentes c�
 ### Tamaño Matrices
 En los métodos que se requiere el ingreso de matrices o vectores se tiene una entrada donde se pide que se ingrese el tamaño de la matriz, a pesar de que usted puede ingresar cualquier numero aquí, se recomienda que para el correcto funcionamiento de la aplicación se utilicen numero entre 2 y 5.
 
+### Puntos para metodos de interpolacion
+En los métodos de interpolación se piden 2 vectores X y Y, por favor ingresar los puntos de tal forma que si tenemos por ejemplo los puntos (x,y) ([1,3],[4,8]) el vector X quede como [1,4] y el vector Y como [3, 8]
+
 ## Metodos para la solucion de sistemas de una variable
 
 ### Busqueda incremental
