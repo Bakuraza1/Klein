@@ -428,6 +428,7 @@ def SP(request):
 
 
 def graficar(x, y, f):
+    plt.clf()
     f = f
     f2 = []
     for i in range(0, len(f)):
