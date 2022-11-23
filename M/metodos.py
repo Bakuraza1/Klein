@@ -57,11 +57,11 @@ def biseccion(f, xi, xs, tol, niter):
     if fi==0:
         s=Xi
         E=0
-        print(Xi, "es raiz de f(x)")
+        res2 = (Xi, "es raiz de f(x)")
     elif fs==0:
         s=Xs
         E=0
-        print(Xs, "es raiz de f(x)")
+        res2 = (Xs, "es raiz de f(x)")
     elif fs*fi<0:
         c=0
         Xm=(Xi+Xs)/2
@@ -96,15 +96,15 @@ def biseccion(f, xi, xs, tol, niter):
         b.append(Xs)
         if fe==0:
             s=x
-            print(s,"es raiz de f(x)")
+            res2 = (s,"es raiz de f(x)")
         elif Error<Tol:
             s=x
             res2 = (s,"es una aproximacion de un raiz de f(x) con una tolerancia", Tol)
         else:
             s=x
-            print("Fracaso en ",Niter, " iteraciones")
+            res2 = ("Fracaso en ",Niter, " iteraciones")
     else:
-        print("El intervalo es inadecuado")
+        res2=("El intervalo es inadecuado")
 
     for i in range(0, len(N)):
         res.append([N[i], a[i],xn[i],b[i], fm[i], E[i]])
@@ -121,9 +121,9 @@ def regla_falsa(f,t_error,xinf,xsup,tol,niter):
     print(fxsup)
     resultados = [] #matriz para guardar resultados
     if fxinf==0:
-        print (xinf," es raiz")
+        res2 =  (xinf," es raiz")
     elif fxsup==0:
-        print (xsup," es raiz")
+        res2 =  (xsup," es raiz")
     elif fxinf*fxsup<0:
         xm = xinf-((fxinf*(xsup-xinf))/float(fxsup-fxinf))
         x=xm
@@ -149,13 +149,13 @@ def regla_falsa(f,t_error,xinf,xsup,tol,niter):
             contador+=1
             resultados.append([contador,xinf,xsup,xm,fxm,error])
         if fxm==0:
-            print ("xm es raiz")
+            res2= ("xm es raiz")
         elif error <= tol:
             res2 = ( xm," se aproxima a una raiz con una tolerancia de ",tol)
         else:
-            print ("Maximo de iteraciones alcanzado")
+            res2= ("Maximo de iteraciones alcanzado")
     else:
-        print ("El intervalo es inadecuado")
+        res2= ("El intervalo es inadecuado")
     return resultados, res2
 
 
@@ -193,14 +193,14 @@ def punto_fijo(f, g, x0, tol, niter):
     gx.append(x)
     if fe == 0:
         s = x
-        print(s, "es raiz de f(x)")
+        res2 = (s, "es raiz de f(x)")
     elif Error < Tol:
         s = x
         res2 = (s, "es una aproximacion de un raiz de f(x) con una tolerancia", Tol)
 
     else:
         s = x
-        print("Fracaso en ", Niter, " iteraciones ")
+        res2 = ("Fracaso en ", Niter, " iteraciones ")
 
     for i in range(0, len(N)):
         res.append([N[i], xn[i], fn[i], gx[i], E[i]])
@@ -246,14 +246,14 @@ def newton_raphson(f, df, x0, tol, niter):
         E.append(Error)
     if f==0:
         s=x
-        print(s,"es raiz de f(x)")
+        res2 = (s,"es raiz de f(x)")
     elif Error<Tol:
         s=x
         res2 = (s,"es una aproximacion de un raiz de f(x) con una tolerancia", Tol)
 
     else:
         s=x
-        print("Fracaso en ",Niter, " iteraciones ")
+        res2 = ("Fracaso en ",Niter, " iteraciones ")
 
 
     for i in range(0, len(N)):
@@ -301,14 +301,14 @@ def secante(x0, x1, f, tol, niter):
         E.append(Error)
     if f == 0:
         s = x
-        print(s, "es raiz de f(x)")
+        res2 = (s, "es raiz de f(x)")
     elif Error < Tol:
         s = x
         res2 = (s, "es una aproximacion de un raiz de f(x) con una tolerancia", Tol)
 
     else:
         s = x
-        print("Fracaso en ", Niter, " iteraciones ")
+        res2 = ("Fracaso en ", Niter, " iteraciones ")
 
 
     for i in range(0, len(N)):
@@ -380,7 +380,7 @@ def multiple_roots(x0, f, df, df2, tol, niter):
 
     else:
         s = x
-        print("Fracaso en ", Niter, " iteraciones ")
+        res2 = ("Fracaso en ", Niter, " iteraciones ")
 
     for i in range(0, len(N)):
         res.append([N[i], xn[i], fn[i], E[i]])
@@ -929,5 +929,3 @@ def lagrange(puntos):
     producto = sym.simplify(sym.expand(producto))
     return producto, ls
 
-if __name__ == "__main__":
-    lagrange([[-1,15.5],[0,3],[3,8]])
