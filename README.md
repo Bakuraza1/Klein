@@ -97,10 +97,10 @@ En los métodos de interpolación se piden 2 vectores X y Y, por favor ingresar 
 ### Busqueda incremental
 **Entradas:**
 
-- Función: funcion a utilizar
-- Valor inicial: valor inicial del metodo
-- Delta: tamaño de los intervalos
-- Iteraciones máximas: Iteraciones máximas
+- Función: funcion a utilizar. ej math.log(math.sin(x)**2+1)-(1/2)
+- Valor inicial: valor inicial del metodo. ej -3
+- Delta: tamaño de los intervalos. ej 0.5 
+- Iteraciones máximas: Iteraciones máximas. ej 100
 
 **Salida:**
 Tabla que mostrara los intervalos donde se encontraron raíces, dicha tabla tendrá las columnas:
@@ -112,11 +112,11 @@ Tabla que mostrara los intervalos donde se encontraron raíces, dicha tabla tend
 ### Bisección
 **Entradas:**
 
-- Función: función a utilizar
-- Intervalo inferior: intervalo inferior
-- Intervalo Superior: intervalo superior
-- Tolerancia: Tolerancia en D.C
-- Iteraciones máximas: Iteraciones máximas
+- Función: función a utilizar. ej math.log(math.sin(x)**2+1)-(1/2)
+- Intervalo inferior: intervalo inferior. ej 0
+- Intervalo Superior: intervalo superior. ej 1
+- Tolerancia: Tolerancia en D.C. ej 1e-7
+- Iteraciones máximas: Iteraciones máximas. ej 100
 
 **Salida:**
 Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
@@ -131,11 +131,11 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 ### Regla Falsa
 **Entradas:**
 
-- Función: funcion a utilizar
-- Intervalo inferior: intervalo inferior
-- Intervalo Superior: intervalo superior
-- Tolerancia: Tolerancia en D.C
-- Iteraciones máximas: Iteraciones máximas
+- Función: funcion a utilizar. ej math.log(math.sin(x)**2+1)-(1/2)
+- Intervalo inferior: intervalo inferior. ej 0
+- Intervalo Superior: intervalo superior. ej 1
+- Tolerancia: Tolerancia en D.C. ej 1e-7
+- Iteraciones máximas: Iteraciones máximas. ej 100
 
 **Salida:**
 Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
@@ -150,11 +150,11 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 ### Punto fijo
 **Entradas:**
 
-- Función: función a utilizar
-- Función g: función f sobrescrita como x = ...
-- Valor inicial: Valor inicial
-- Tolerancia: Tolerancia en D.C
-- Iteraciones máximas: Iteraciones máximas
+- Función: función a utilizar. ej math.log(math.sin(x)**2+1)-(1/2)
+- Función g: función f sobrescrita como x = ...  ej math.log(math.sin(x)**2+1)-(1/2)
+- Valor inicial: Valor inicial. ej -0.5
+- Tolerancia: Tolerancia en D.C. ej 1e-7
+- Iteraciones máximas: Iteraciones máximas. ej 100
 
 **Salida:**
 Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
@@ -168,11 +168,11 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 ### Newton-Raphson
 **Entradas:**
 
-- Función: función a utilizar
-- Función f': primera derivada de f
-- Valor inicial: Valor inicial
-- Tolerancia: Tolerancia en D.C
-- Iteraciones máximas: Iteraciones máximas
+- Función: función a utilizar. ej math.log(math.sin(x)**2+1)-(1/2)
+- Función f': primera derivada de f. ej 2*(1/(math.sin(x)**2 + 1))*(math.sin(x)*math.cos(x))
+- Valor inicial: Valor inicial. ej -0.5
+- Tolerancia: Tolerancia en D.C. ej 1e-7
+- Iteraciones máximas: Iteraciones máximas. ej 100
 
 **Salida:**
 Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
@@ -185,11 +185,11 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 ### Secante
 **Entradas:**
 
-- Función: función a utilizar
-- Valor inicial x0: Valor inicial de x0
-- Valor inicial x1: Valor inicial de x1
-- Tolerancia: Tolerancia en D.C
-- Iteraciones máximas: Iteraciones máximas
+- Función: función a utilizar. ej math.log(math.sin(x)**2+1)-(1/2)
+- Valor inicial x0: Valor inicial de x0. ej 0.5
+- Valor inicial x1: Valor inicial de x1. ej 1
+- Tolerancia: Tolerancia en D.C. ej 1e-7
+- Iteraciones máximas: Iteraciones máximas. ej 100
 
 **Salida:**
 Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
@@ -202,12 +202,12 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 ### Raices multiples
 **Entradas:**
 
-- Función f: función a utilizar
-- Función f': primera derivada de f
-- Función f'': segunda derivada de f
-- Valor inicial x0: Valor inicial de x0
-- Tolerancia: Tolerancia en D.C
-- Iteraciones máximas: Iteraciones máximas
+- Función f: función a utilizar. ej math.exp(x)-x-1
+- Función f': primera derivada de f. ej math.exp(x)-1
+- Función f'': segunda derivada de f. ej math.exp(x)
+- Valor inicial x0: Valor inicial de x0. ej 1
+- Tolerancia: Tolerancia en D.C. ej 1e-7
+- Iteraciones máximas: Iteraciones máximas. ej 100
 
 **Salida:**
 Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
