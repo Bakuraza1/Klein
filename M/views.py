@@ -177,11 +177,12 @@ def EG3(request):
         res2 = regressive_substitution(np.array(res[0][-1]))
         ans = res[1]
         print(ans)
+        print(res2)
+        res3 = []
         for i in range(0, len(ans)):
-            temp = res2[ans[i]]
-            res2[ans[i]] = res2[i]
-            res2[i] = temp
-        return render(request, "EG3.html",{'number': range(0,number), 'n': number, 'res':res[0],'res1':res[1], 'res2':res2})
+            res3.append(res2[ans[i]])
+        
+        return render(request, "EG3.html",{'number': range(0,number), 'n': number, 'res':res[0],'res1':res[1], 'res2':res3})
     return render(request, "EG3.html",{'number': range(0,number), 'n': number})
 
 def LUS(request):
