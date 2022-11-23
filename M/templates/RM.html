@@ -17,22 +17,22 @@
                 {% csrf_token %}
                 <div id="input-container">
                     <div>
-                        <p class="form-p">Funcion f: </p><input type="text" class="f-input" value="math.exp(x)-x-1" name="funcion">
+                        <p class="form-p">Funcion f: </p><input type="text" class="f-input" value="{{arg.0}}"  name="funcion">
                     </div>
                     <div>
-                        <p class="form-p">Funcion f': </p><input type="text" class="f-input"  value="math.exp(x)-1"name="funcionf">
+                        <p class="form-p">Funcion f': </p><input type="text" class="f-input" value="{{arg.1}}" name="funcionf">
                     </div>
                     <div>
-                        <p class="form-p">Funcion f'': </p><input type="text" class="f-input"  value="math.exp(x)" name="funcionff">
+                        <p class="form-p">Funcion f'': </p><input type="text" class="f-input" value="{{arg.2}}" name="funcionff">
                     </div>
                     <div>
-                        <p class="form-p">Valor inicial x0: </p><input type="text" class="f-input"  value="1" name="x0">
+                        <p class="form-p">Valor inicial x0: </p><input type="text" class="f-input" value="{{arg.3}}"  name="x0">
                     </div>
                     <div>
-                        <p class="form-p">Tolerancia: </p><input type="text" class="f-input" value="1e-7" name="tol">
+                        <p class="form-p">Tolerancia: </p><input type="text" class="f-input" value="{{arg.4}}" name="tol">
                     </div>
                     <div>
-                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input"  value="100" name="niter">
+                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" value="{{arg.5}}"  name="niter">
                     </div>
                 </div>
                 <input class="send" type="submit" name="submit" value="Completado" >

@@ -14,16 +14,16 @@
                 {% csrf_token %}
                 <div id="input-container">
                     <div>
-                        <p class="form-p">Funcion: </p><input type="text" class="f-input" value="math.log(math.sin(x)**2+1)-(1/2)" value="{{arg.0}}" name="funcion">
+                        <p class="form-p">Funcion: </p><input type="text" class="f-input" value="{{arg.0}}" name="funcion">
                     </div>
                     <div>
-                        <p class="form-p">Valor Inicial: </p><input type="text" class="f-input" value="-3" value="{{arg.1}}" name="Valor-i">
+                        <p class="form-p">Valor Inicial: </p><input type="text" class="f-input" value="{{arg.1}}" name="Valor-i">
                     </div>
                     <div>
-                        <p class="form-p">Delta: </p><input type="text" class="f-input" value="0.5" value="{{arg.2}}" name="delta">
+                        <p class="form-p">Delta: </p><input type="text" class="f-input" value="{{arg.2}}" name="delta">
                     </div>
                     <div>
-                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" value="100" value="{{arg.3}}" name="niter">
+                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" value="{{arg.3}}" name="niter">
                     </div>
                 </div>
                 <input class="send" type="submit" name="submit" value="Completado" >

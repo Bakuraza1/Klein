@@ -17,19 +17,19 @@
                 {% csrf_token %}
                 <div id="input-container">
                     <div>
-                        <p class="form-p">Funcion: </p><input type="text" class="f-input" value='math.log(math.sin(x)**2+1)-(1/2)' value="{{arg.0}}" name="funcion">
+                        <p class="form-p">Funcion: </p><input type="text" class="f-input" value="{{arg.0}}" name="funcion">
                     </div>
                     <div>
-                        <p class="form-p">Intervalo Inferior: </p><input type="text" class="f-input" value='0' value="{{arg.1}}" name="a">
+                        <p class="form-p">Intervalo Inferior: </p><input type="text" value="{{arg.1}}" class="f-input" name="a">
                     </div>
                     <div>
-                        <p class="form-p">Intervalo Superior: </p><input type="text" class="f-input" value='1' value="{{arg.2}}" name="b">
+                        <p class="form-p">Intervalo Superior: </p><input type="text" value="{{arg.2}}" class="f-input" name="b">
                     </div>
                     <div>
-                        <p class="form-p">Tolerancia: </p><input type="text" class="f-input" value='1e-7' value="{{arg.3}}" name="tol">
+                        <p class="form-p">Tolerancia: </p><input type="text" class="f-input" value="{{arg.3}}" name="tol">
                     </div>
                     <div>
-                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" value='100' value="{{arg.4}}" name="niter">
+                        <p class="form-p">Iteraciones Maximas:</p><input type="text" class="f-input" value="{{arg.4}}" name="niter">
                     </div>
                 </div>
                 <input class="send" type="submit" name="submit" value="Completado" >
