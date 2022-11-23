@@ -389,16 +389,16 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 **Salida:**
 - Coeficientes
 - Polinomios
+- Grafica con intervalos
 
-
-## Pseudo Codigo
+## Pseudo Código
 Esta sección permitirá al usuario ver con mas detalle el funcionamiento de los diferentes métodos implementados.
 
 ### Búsqueda incremental
 Se debe tener la certeza de que la función es continua.
 
 - Se pide a función
-- Se pide al usuario que ingrese un valor inicial (A) para encontrar la raiz de la funcion mas cercana - Se pide al usuario un delta, lo que nos permitira saber le valor de B (B=A+delta).
+- Se pide al usuario que ingrese un valor inicial (A) para encontrar la raíz de la función mas cercana - Se pide al usuario un delta, lo que nos permitirá saber le valor de B (B=A+delta).
 - Se evalúa los valores A y B en la función para obtener f(A) y f(B)
 
 	   while f(A) * f(B) > 0 do
@@ -418,7 +418,7 @@ Se debe tener la certeza de que la función es continua.
 -Se pide al usuario A y B, los valores para el intervalo inicial
  -Se crea variable i para contar las iteraciones
 -Se evalua A y B obteniendo f(A) y f (B)
--Se revisa si hay una raiz en el intervalo `if f(A) * f(B) <= 0`
+-Se revisa si hay una raíz en el intervalo `if f(A) * f(B) <= 0`
 -`Error = (A+B)/2^i`
 -Ahora encontraremos el valor medio del intervalo `M = (A+B)/2` y lo evaluamos
 
@@ -444,7 +444,7 @@ Se debe tener la certeza de que la función es continua.
 ### Regla Falsa
 Se debe tener la certeza de que la función es continua.
 
--Se pide la funcion tolerancia y numero maximo de iteraciones
+-Se pide la función tolerancia y numero máximo de iteraciones
 -Se pide al usuario A y B, los valores para el intervalo inicial
  -Se crea variable i para contar las iteraciones
 -Se evalua A y B obteniendo f(A) y f (B)
@@ -478,7 +478,7 @@ Se debe tener la certeza de que la función f es continua, además la función g
 
 -Se pide la función f, la función g, tolerancia y numero máximo de iteraciones
 -Se pide al usuario un valor X0 que será el valor inicial y se evalúa f(X0)
- -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Asi tenemos `Xn = g(X0).`
+ -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Así tenemos `Xn = g(X0).`
 -Buscamos el `error = |x0 - xn|`
 
 	while error > tolerance, n < niter:
@@ -498,7 +498,7 @@ Se debe tener la certeza de que la función f es continua, además su derivada d
 -Se pide la función f, su derivada, tolerancia y numero máximo de iteraciones
 -Se pide al usuario un valor X0 que será el valor inicial y se evalúa f(X0) 
 -Se evalúa X0 en la derivada para obtener f'(X0)
- -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Asi tenemos `Xn = x0-(f(x0)/f'(x0))`
+ -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Así tenemos `Xn = x0-(f(x0)/f'(x0))`
 -Buscamos el `error = |x0 - xn|`
 
 	while error > tolerance, n < niter:
@@ -536,12 +536,12 @@ Ahora podemos llegar a diferentes paradas.
 -  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
 - Si `i >= niter` Se muestra hasta donde se haya iterado.
 
-### Raices Multiples
+### Raíces Múltiples
 Se debe tener la certeza de que la función f es continua
 
 -Se pide la función f, la primera derivada de f, la segunda derivada de f, tolerancia y numero máximo de iteraciones
 -Se pide al usuario un valor X0 y se evalúa f(X0) f'(X0) y f''(X0)
- -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Asi tenemos `Xn = x0-(f(x0)*f'(x0)/f'(x1)^2-f(x0)*f''(x0))`
+ -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Así tenemos `Xn = x0-(f(x0)*f'(x0)/f'(x1)^2-f(x0)*f''(x0))`
 -Buscamos el `error = |x0 - x1|`
 
 	while error > tolerance, n < niter:
@@ -557,8 +557,8 @@ Se debe tener la certeza de que la función f es continua
 Ahora podemos llegar a diferentes paradas.
 -  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
 - Si `i >= niter` Se muestra hasta donde se haya iterado.
-		
-		
+
+
 ### Eliminación Gaussiana Simple
 
 -Pedir al usuario la matriz A
@@ -1098,9 +1098,8 @@ La ejecución del método va así:
 	Xant = Xact
 
 	Counter++
-		
 
-### Metodo de Vandermonde
+### Método de Vandermonde
 
 - Se solicita la entrada, esta consta de dos vectores x y f(x) o y.
 
@@ -1109,7 +1108,7 @@ La ejecución del método va así:
 - Se multiplica la inversa de la matriz de Vandermonde por el vector y y se obtienen los coeficientes.
 - El método retorna la matriz de Vandermonde y los coeficientes del polinomio de interpolación.
 
-### Metodo de de Spline
+### Método de de Spline
 
 1. Se solicita la entrada, esta consta de dos vectores x y f(x), y un argumento d que corresponde a el grado de los polinomios, lineales(1),cuadraticos(2) y cubicos(3).
 
@@ -1159,4 +1158,48 @@ La ejecución del método va así:
 
 				p(X) = 6∗Ai∗Xn + Bi = 0
 
-4.El metodo retorna una lista con los coeficientes de cada polinomio.
+4.El método retorna una lista con los coeficientes de cada polinomio.
+
+### Método de Newton de interpolación
+
+- Se solicita la entrada, esta consta de dos vectores x y f(x) o y.
+
+- Se construye la tabla de diferencias divididas asi:
+
+		Tabla = matriz(nxn) # Donde n es la longitud de los datos de entrada
+
+			Para j=1 hasta n
+
+				Para i=1 hasta n
+	
+					Tabla[i][j] <- (Tabla[i+1][j-1] - Tabla[i][j-1]) / (x[i+j]-x[i])
+
+- Se sacan los coeficientes del polinomio que corresponden a la primera fila de la Tabla.
+
+- El metodo retorna la tabla de diferencias divididas y los coeficientes del polinomio de interpolacion
+
+### Método de Lagrange
+
+- Se solicita la entrada, esta consta de dos vectores x y f(x) o y.
+
+- Se construye la tabla de diferencias divididas asi:
+
+		Tabla = matriz(nxn) # Donde n es la longitud de los datos de entrada
+
+			Para i=0 hasta n
+
+				Para j=0 hasta n
+
+					si j != i #Evitamos la diagonal
+
+						paux=[1 - x[j]]
+
+						Li=Convolucion(Li,paux)
+
+						den=den*(x[i]-x[j])
+
+				Tabla[i,toda la columna]=y[i]*Li/den
+
+- Se suman las columnas de la tabla y se obtienen los coeficientes.
+
+- El método retorna la tabla de diferencias divididas y los coeficientes del polinomio de interpolación.
