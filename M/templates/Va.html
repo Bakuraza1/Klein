@@ -3,7 +3,12 @@
 {% load util %}
 
     {% block content %}
-
+    <div id="izquierda">
+        <a href="{% url 'IT' %}" ><div class="M-name-container"><p class="Method-title">Metodos Iterativos</p></div></a>
+    </div>
+        <div id="derecha">
+            <a href="{% url 'NDD' %}" ><div class="M-name-container"><p class="Method-title">Newton Diferencias Divididas</p></div></a>
+    </div>
     <div id="Metodos">
         <h1 id="M-title">Vandermonde</h1>
         <div id="M-container">

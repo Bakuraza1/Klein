@@ -216,3 +216,15 @@ input[type=submit]{
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
 }
+
+#derecha{
+    position: absolute;
+    left: 85%;
+    top: 50%;
+}
+
+#izquierda{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+}

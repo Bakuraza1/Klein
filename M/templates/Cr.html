@@ -3,7 +3,12 @@
 {% load util  %}
 
     {% block content %}
-
+    <div id="derecha">
+        <a href="{% url 'DO' %}" ><div class="M-name-container"><p class="Method-title">Doolittle</p></div></a>
+    </div>
+        <div id="izquierda">
+            <a href="{% url 'LUP' %}" ><div class="M-name-container"><p class="Method-title">Factorizacion directa LU parcial</p></div></a>
+    </div>
     <div id="Metodos">
         <h1 id="M-title">Croult</h1>
         <div id="M-container">

@@ -3,7 +3,12 @@
 
 
     {% block content %}
-
+    <div id="derecha">
+        <a href="{% url 'RM' %}" ><div class="M-name-container"><p class="Method-title">Raices Multiples</p></div></a>
+    </div>
+        <div id="izquierda">
+            <a href="{% url 'NR' %}" ><div class="M-name-container"><p class="Method-title">Newton-Raphson</p></div></a>
+    </div>
     <div id="Metodos">
         <h1 id="M-title">Secante</h1>
         <div id="M-container">

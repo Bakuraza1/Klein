@@ -3,6 +3,12 @@
 
 
     {% block content %}
+    <div id="derecha">
+        <a href="{% url 'SEC' %}" ><div class="M-name-container"><p class="Method-title">Secante</p></div></a>
+    </div>
+        <div id="izquierda">
+            <a href="{% url 'PFi' %}" ><div class="M-name-container"><p class="Method-title">Punto Fijo</p></div></a>
+    </div>
     <div id="Metodos">
         <h1 id="M-title">Newton-Raphson</h1>
         <div id="M-container">
