@@ -562,6 +562,55 @@ def lu_gauss(a, b):
     return res, regressive_substitution(to_aug(a, z))
 
 
+def LU_partial_decomposition(A, B):
+    n, m = A.shape
+    P    = np.identity(n)
+    L    = np.identity(n)
+    U    = A.copy()
+    PF   = np.identity(n)
+    LF   = np.zeros((n,n))
+    for k in range(0, n - 1):
+        index = np.argmax(abs(U[k:, k]))
+        index = index + k 
+        if index != k:
+            P = np.identity(n)
+            P[[index, k], k:n] = P[[k, index], k:n]
+            U[[index, k], k:n] = U[[k, index], k:n] 
+            PF = np.dot(P, PF)
+            LF = np.dot(P, LF)
+        L = np.identity(n)
+        for j in range(k+1,n):
+            L[j, k]  = -(U[j, k] / U[k, k])
+            LF[j, k] =  (U[j, k] / U[k, k])
+        U = np.dot(L,U)
+    np.fill_diagonal(LF, 1)
+
+    """ # Sustitución progresiva
+    Z, x = [], []
+    sum = 0
+    for i in range(n):
+        sum = 0
+        for j in range(i):
+            sum += L[i,j]*B[j]
+        Z.append((B[i] - sum) / L[i, i])
+    # Sustitución regresiva
+    for i in range(U.shape[0]-1,-1,-1): 
+        sum = 0
+        for j in range(i, n):
+            sum += U[i,j]*B[j]
+        B[i] = B[i]/U[i,i] """
+    for i in range(L.shape[0]): 
+        for j in range(i):
+            B[i] -= L[i,j]*B[j]
+    # Sustitución regresiva
+    for i in range(U.shape[0]-1,-1,-1): 
+        for j in range(i+1, U.shape[1]):
+            B[i] -= U[i,j]*B[j]
+        B[i] = B[i]/U[i,i]
+    
+    return PF, LF, U, B
+
+
 def crout(a, b):
     n = a.shape[0]
     lower_tri = np.identity(n, dtype=np.float64)

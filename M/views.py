@@ -208,6 +208,20 @@ def LUP(request):
     global number
     if request.method=='POST' and (request.POST["submit"] == 'Actualizar'):
         number = int(request.POST["number"])
+    if request.method=='POST' and (request.POST["submit"] == 'Completado'):
+        matrix = []
+        vector = []
+        for i in range(0, number):
+            vector.append(request.POST["v%(i)d" % {"i":i}])
+            matrix.append([])
+            for j in range(0,number):
+                matrix[i].append(request.POST["m%(i)d%(j)d" % {"i":i,"j": j}])
+        matrix = np.array(matrix).astype(np.float64)
+        vector = np.array(vector).astype(np.float64)
+        res = lu_gauss(matrix, vector)
+        for i in res[0]:
+            print(i)
+        return render(request, "LUP.html",{'number': range(0,number), 'n': number, 'res':res[0], 'res2':res[1], 'names': ['z','U','L','M']})
     return render(request, "LUP.html",{'number': range(0,number), 'n': number})
 
 def Cr(request):
