@@ -93,7 +93,7 @@ Documentación: https://mauriciopoppe.github.io/function-plot/
 A continuación, se mostrarán algunos ejemplos de funciones bien definidas.
 
 | Correcto | 
-|--|--|
+|--|
 | x^2+3 | 
 | log(x+3)/8|
 |sin(x)|
