@@ -557,3 +557,544 @@ Se debe tener la certeza de que la función f es continua
 Ahora podemos llegar a diferentes paradas.
 -  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
 - Si `i >= niter` Se muestra hasta donde se haya iterado.
+		
+		
+### Eliminación Gaussiana Simple
+
+-Pedir al usuario la matriz A
+
+-Pedir al usuario el vector computable B y el número entero n.
+
+  
+
+	For i = 1 < n
+
+		For j - 1 < n + 1
+
+			Leer Aij
+
+  
+
+-Aplicar la eliminación de Gauss a la matriz A
+
+  
+
+	For i = 1 < n - 1
+
+		If Aij = 0
+
+			print "Error!"
+
+		endIf
+
+		For j - i + 1 < n
+
+			Ratio = Aij / Aii
+
+			For k = 1 to n+1
+
+				Ajk = Ajk - Ratio * Aik
+
+  
+
+-Obtener la solución por sustitución regresiva
+
+  
+
+	Xn = An,n+1 / Ann
+
+	For i = n - 1 < 1 (Step: -1)
+
+		Xi = Ai,n+1
+
+		For j = i + 1 < n
+
+			xi = xi - Aij * xj
+
+		xi = xi / Aii
+
+  
+
+-Mostrar la solución
+
+  
+	
+	for i = 1 < n
+
+		Mostrar xi
+
+  
+
+***Nota:*** Todos los índices de la matriz se asumen a partir de 1.
+
+### Eliminación Gaussiana con pivote parcial
+
+-Pedir al usuario la matriz A
+
+-Pedir al usuario el vector computable B y el número entero n.
+
+  
+
+	For k = 1 until n-1
+
+		For p - k until n
+
+			akk_max = |apk|
+
+		If akk = 0
+
+			Imprimir "Use otro método"
+
+		If not
+
+			if k != p
+
+				Intercambiar la fila k por p
+
+		For i = k + 1 until n
+
+			mik = aij / akk
+
+			If mik <= 1
+
+				For j = k until n + 1
+
+				aij = aij - mik * aik
+
+-Obtener la solución por sustitución progresiva
+
+  
+	
+	For i = n < 1
+
+		sum = 0
+
+		For j = i + 1 < 1
+
+			sum = sum + aij * xij
+
+		xi = (ain + 1 - sum) / aij
+
+  
+
+### Eliminación Gaussiana con pivote total
+
+-Pedir al usuario la matriz A
+
+-Pedir al usuario el vector computable B y el número entero n.
+
+  
+
+	For k = 1 until n-1
+
+		For p - k until n
+
+			For r = k until n
+
+				akk= max|apr|
+
+		If akk = 0
+
+			Imprimir "Use otro método"
+
+		If not
+
+			if k != p and k != r
+
+				Intercambiar la fila k por p
+
+				Intercambiar columna k por r
+
+		For i = k + 1 until n
+
+			mik = aij / akk
+
+			If mik <= 1
+
+				For j = k until n + 1
+
+					aij = aij - mik * aik
+
+-Obtener la solución por sustitución progresiva
+
+  
+	
+	For i = n < 1
+
+		sum = 0
+
+		For j = i + 1 < 1
+
+			sum = sum + aij * xij
+
+		xi = (ain + 1 - sum) / aij
+
+  
+
+### Factorización LU (simple)
+
+-Pedir al usuario que introduzca una matriz. La llamaremos *A*.
+
+***Nota:*** Tiene que ser una matriz cuadrada.
+
+-Ahora tomamos el tamaño de la matriz A y lo almacenamos en una variable llamada *n*.
+
+-A continuación, creamos 2 matrices más, las llamamos *L* y *U*. Las matrices *L* y *U* deben tener las siguientes características, ambas deben tener el mismo tamaño que la matriz *A*, todos los elementos diagonales de *L* serán 1 y el resto serán 0. Todos los elementos de *U* serán 0.
+
+-El siguiente paso es crear una variable auxiliar, la llamaremos *M* y su valor inicial es el mismo que el de *A*.
+
+-Mostrar al usuario el paso cero imprimiendo las matrices *L* y *U*.
+
+-Ahora comenzaremos a ejecutar el método
+
+  
+
+	For i = 1 < n - 1
+
+		If a diagonal element == 0
+
+			Imprimir "Usar otro método"
+
+		For j = i + 1 < n
+		
+			If element Mji != 0
+
+				/* A continuación encontraremos los multiplicadores del pivote. Asignaremos estos elementos de L: */
+
+				Lji = Mji / Mii
+
+			/* Ahora comienza la operación de filas para los elementos de la matriz que están por debajo del elemento Mii. Convirtiéndolos todos en 0 */
+
+		/* Ahora asignamos cada elemento de la fila i de M y de la fila i de U y añadimos 1 a i para que pueda tomar el siguiente elemento de la diagonal */
+
+		/* Imprimir cada paso para que el usuario pueda visualizarlo */
+
+### Factorización LU con pivote parcial
+
+-Pedir al usuario que introduzca una matriz. La llamaremos *A*.
+
+***Nota:*** Tiene que ser una matriz cuadrada.
+
+-Ahora tomamos el tamaño de la matriz A y lo almacenamos en una variable llamada *n*.
+
+-A continuación, creamos 3 matrices más, las llamamos *L*, *P* y *U*. Las matrices *L*, *P* y *U* deben tener las siguientes características, ambas deben tener el mismo tamaño que la matriz *A*, todos los elementos diagonales de *L* serán 1 y el resto serán 0. Todos los elementos de *L* y *P* serán 1 y el resto serán 0. Todos los elementos de _U_ serán 0.
+
+-El siguiente paso es crear una variable auxiliar, la llamaremos *M* y su valor inicial es el mismo que el de *A*.
+
+-Mostrar al usuario el paso cero imprimiendo las matrices *L* y *U*.
+
+-Ahora comenzaremos a ejecutar el método
+
+  
+
+	For i = 1 < n - 1
+
+		/* Para ver si debemos hacer un cambio de filas, miramos el valor absoluto del elemento mayor de los que están debajo del elemento Mii y comparamos. */
+
+		/* Si el valor absoluto del elemento es mayor que el valor absoluto de Mii necesitamos cambiar filas entre la variable auxiliar,*/
+
+		/* y hacemos el mismo cambio en las mismas filas de la matriz P */
+
+		If a diagonal element == 0
+
+			Imprimir "Usar otro método"
+
+		For j = i + 1 < n
+
+			If element Mji != 0
+
+				/* A continuación encontraremos los multiplicadores del pivote. Asignaremos estos elementos de L: */
+
+				Lji = Mji / Mii
+
+			/* Ahora comienza la operación de filas para los elementos de la matriz que están por debajo del elemento Mii. Convirtiéndolos todos en 0 */
+
+		/* Ahora asignamos cada elemento de la fila i de M y de la fila i de U y añadimos 1 a i para que pueda tomar el siguiente elemento de la diagonal */
+
+		/* Imprimir cada paso para que el usuario pueda visualizarlo */
+
+  
+
+### Croult
+
+-Pide al usuario una matriz A. Debe ser una matriz cuadrada.
+
+-Pedir al usuario el vector B y asegurarse de que tiene la misma longitud que la matriz A, y pedir un número entero n.
+
+-A continuación, creamos 2 matrices más, las llamamos L y U. Las matrices L y U deben tener las siguientes características,
+
+-Tener el mismo tamaño que la matriz A
+
+-L tendrá los mismos elementos que están debajo de la diagonal en A pero con el signo contrario. La diagonal en L será la misma que en A, y todos los demás elementos serán 0.
+
+-U tendrá los mismos elementos en A que están por encima de la diagonal con signos opuestos, y tendrá los mismos elementos en la diagonal que A y el resto de los elementos serán 0.
+
+  
+
+	For k = 1 < n
+
+		sum1 = 0
+
+		For p = 1 < k - 1
+
+			sum1 = sum1 + Lkp * Ukp
+
+			Lkk = sqrt(akk + sum1)
+
+		For i = k + 1 < n
+
+			sum2 = 0
+
+			For r = 1 < k - 1
+
+				sum2 = sum2 + Lir * Urk
+
+			Ljk = (akk - sum2)
+
+			For j = k + 1 < n
+
+				sum3 = 0
+
+				For s = 1 < s-1
+
+					sum3 = sum3 + Lks * Usj
+
+					Ukj = (akj-sum3) / Lkk
+
+-Sustitución regresiva
+
+  
+
+	For i = n < n
+
+		sum = 0
+
+		For j = 1 + 1 < n
+
+			sum = sum + aij * xij
+
+		xi = ((ain+1) - sum) / aii
+
+-Sustitución progresiva
+
+  
+
+	For i=1 < n
+
+		sum = 0
+
+		For j = i + 1 < n
+
+			sum = sum + aij * xij
+
+		xi = ((ain+1) - sum) / aii
+
+### Doolittle
+
+-Pide al usuario una matriz A. Debe ser una matriz cuadrada.
+
+-Pedir al usuario el vector B y asegurarse de que tiene la misma longitud que la matriz A, y pedir un número entero n.
+
+-A continuación, creamos 2 matrices más, las llamamos L y U. Las matrices L y U deben tener las siguientes características,
+
+-Tener el mismo tamaño que la matriz A
+
+-L tendrá los mismos elementos que están debajo de la diagonal en A pero con el signo contrario. La diagonal en L será la misma que en A, y todos los demás elementos serán 0.
+
+-U tendrá los mismos elementos en A que están por encima de la diagonal con signos opuestos, y tendrá los mismos elementos en la diagonal que A y el resto de los elementos serán 0.
+
+  
+
+	For k = 1 < n
+
+		sum1 = 0
+
+		For p = 1 < k - 1
+
+			sum1 = sum1 + Lkp * Ukp
+
+		For i = k + 1 < n
+
+			sum2 = 0
+
+			For r = 1 < k - 1
+
+				sum2 = sum2 + Lir * Urk
+
+			Ljk = (akk - sum2) / Ukk
+
+			For j = k + 1 < n
+
+				sum3 = 0
+
+				For s = 1 < s-1
+
+					sum3 = sum3 + Lks * Usj
+
+					Ukj = (akj-sum3)
+
+-Sustitución regresiva
+
+  
+
+	For i = n < n
+
+		sum = 0
+
+		For j = 1 + 1 < n
+
+			sum = sum + aij * xij
+
+		xi = ((ain+1) - sum) / aii
+
+-Sustitución progresiva
+
+  
+
+	For i=1 < n
+
+		sum = 0
+
+		For j = i + 1 < n
+
+			sum = sum + aij * xij
+
+		xi = ((ain+1) - sum) / aii
+
+### Cholesky
+
+-Pide al usuario una matriz A. Debe ser una matriz cuadrada.
+
+-Pedir al usuario el vector B y asegurarse de que tiene la misma longitud que la matriz A, y pedir un número entero n.
+
+-A continuación, creamos 2 matrices más, las llamamos L y U. Las matrices L y U deben tener las siguientes características,
+
+-Tener el mismo tamaño que la matriz A
+
+-L tendrá los mismos elementos que están debajo de la diagonal en A pero con el signo contrario. La diagonal en L será la misma que en A, y todos los demás elementos serán 0.
+
+-U tendrá los mismos elementos en A que están por encima de la diagonal con signos opuestos, y tendrá los mismos elementos en la diagonal que A y el resto de los elementos serán 0.
+
+  
+
+	For k = 1 < n
+
+		sum1 = 0
+
+		For p = 1 < k - 1
+
+			sum1 = sum1 + Lkp * Ukp
+
+			Lkk = sqrt(akk + sum1)
+
+		For i = k + 1 < n
+
+			sum2 = 0
+
+			For r = 1 < k - 1
+
+				sum2 = sum2 + Lir * Urk
+
+			Ljk = (akk - sum2) / Ukk
+
+			For j = k + 1 < n
+
+				sum3 = 0
+
+				For s = 1 < s-1
+
+					sum3 = sum3 + Lks * Usj
+
+					Ukj = (akj-sum3) / Lkk
+
+-Sustitución regresiva
+
+  
+
+	For i = n < n
+
+		sum = 0
+
+		For j = 1 + 1 < n
+
+			sum = sum + aij * xij
+
+		xi = ((ain+1) - sum) / aii
+
+-Sustitución progresiva
+
+  
+
+	For i=1 < n
+
+		sum = 0
+
+		For j = i + 1 < n
+
+			sum = sum + aij * xij
+
+		xi = ((ain+1) - sum) / aii
+
+  
+
+### Jacobi, Gauss Seidel y SOR
+
+-Pedimos al usuario una matriz. Llamamos a la matriz *A*. La matriz debe ser una matriz cuadrada
+
+-Pedimos un vector *B* y nos aseguramos de que tiene la misma longitud que la matriz *A*.
+
+-Ahora pedimos al usuario una aproximación del valor inicial que llamaremos x0, una tolerancia (tol) y nos aseguramos de que no sea negativa, también pedimos un número máximo de iteraciones (Nmax), que también tiene que ser no negativo, l (será 1 si se quiere ejecutar Jacobi, o 2 si se quiere ejecutar Gauss Seidel, y w si se quiere usar el método de la relación)
+
+-Nos aseguramos de que A no tiene ningún 0 en la diagonal, y que el det(*A*) != 0
+
+-Ahora hacemos 3 nuevas matrices, llamadas *D*, *L* y *U*. Todas deben tener el mismo tamaño que *A* y deben tener los siguientes parámetros:
+
+-*D* debe ser una matriz que tenga los mismos elementos de la diagonal principal que tiene la matriz *A* y el resto de los elementos deben ser 0.
+
+-*L* tendrá los mismos elementos que están debajo de la diagonal en *A* pero con el signo contrario. La diagonal de *L* será la misma que la de *A* y el resto de los elementos serán 0.
+
+-*U* tendrá los mismos elementos en *A* que están por encima de la diagonal con los signos opuestos, y tendrá los mismos elementos en la diagonal que *A* y el resto de los elementos serán 0.
+
+La ejecución del método va así:
+
+  
+
+	If l == 1
+
+		/* Jacobi */
+
+		T = D^-1 * (L+U)
+
+		C = D^-1 * N
+
+	If l == 2
+
+		/* Gauss Seidel */
+
+		T = (D-L)^-1 * U
+
+		C = (D-L)^-1 * B
+
+	If l == 3
+
+		/* SOR */
+
+		T = (D-w * L)^-1 * ((1-w) * (D + w * U))
+
+		C = (w * (D-w * L))^-1 * B
+
+-Ahora encontramos y hacemos la radiancia espectral como el valor absoluto de los mayores valores propios asegurándonos de que son menores que 1.
+
+-Ahora hacemos un contador para las iteraciones que empieza por 0, una variable para el error que empieza por 1, y una variable para la antigua X, la llamaremos Xant, y la iniciaremos como Xant = x0 nuestra aproximación inicial
+
+-Ahora hacemos un ciclo, mientras el Error > la tolerancia, iteraciones (contador) < Nmax
+
+  
+	
+	Xact = Xant * T + C
+
+	Error = norm of Xant - Xact
+
+	Xant = Xact
+
+	Counter++
