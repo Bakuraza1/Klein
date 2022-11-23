@@ -92,7 +92,7 @@ Documentación: https://mauriciopoppe.github.io/function-plot/
 
 A continuación, se mostrarán algunos ejemplos de funciones bien definidas.
 
-| Correcto|
+| Correcto |
 
 | ----------- |
 
