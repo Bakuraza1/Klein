@@ -1370,3 +1370,6 @@ La ejecución del método va así:
 - Se suman las columnas de la tabla y se obtienen los coeficientes.
 
 - El método retorna la tabla de diferencias divididas y los coeficientes del polinomio de interpolación.
+
+## Para tener en cuenta
+- Se han detectado problemas al utilizar numeros imaginarios. Cuando estos estan presentes no se operan sino que aparece 'nan'
