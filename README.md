@@ -116,17 +116,17 @@ Estas funciones se deben escribir en la sintaxis que se escribirían en Python, 
 
 A continuación, se agregará una tabla mostrando funciones bien definidas, comparándolas con las antes mostradas para el graficador.
 
-| Graficador| Métodos |
+| Graficador | Métodos |
 
-| ----------- |--------- |
+| ----------- | --------- |
 
-| x^2+3| x**2+3|
+| x^2+3 | x**2+3 |
 
-| log(x+3)/8| math.log(x+3)/8|
+| log(x+3)/8 | math.log(x+3)/8 |
 
-|sin(x)| math.sin(x)|
+| sin(x)| math.sin(x)|
 
-|cos(x)|math.cos(x) |
+| cos(x)| math.cos(x) |
 
 Tener en cuenta que las funciones se deben escribir en términos de x (minúscula)
 
