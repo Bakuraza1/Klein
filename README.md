@@ -389,3 +389,171 @@ Tabla que mostrara cada iteración, dicha tabla tendrá las columnas:
 **Salida:**
 - Coeficientes
 - Polinomios
+
+
+## Pseudo Codigo
+Esta sección permitirá al usuario ver con mas detalle el funcionamiento de los diferentes métodos implementados.
+
+### Búsqueda incremental
+Se debe tener la certeza de que la función es continua.
+
+- Se pide a función
+- Se pide al usuario que ingrese un valor inicial (A) para encontrar la raiz de la funcion mas cercana - Se pide al usuario un delta, lo que nos permitira saber le valor de B (B=A+delta).
+- Se evalúa los valores A y B en la función para obtener f(A) y f(B)
+
+	   while f(A) * f(B) > 0 do
+        A=B
+        f(A) = f(B)
+        B=B+delta
+        f(B)
+
+
+
+El ciclo parara cuando haya un cambio de signo, es decir cuando se haya encontrado una raíz en el intervalo. En el caso preciso de Klein se deja correr este ciclo para encontrar todas las raíces posibles hasta n.
+
+### Bisección 
+Se debe tener la certeza de que la función es continua.
+
+-Se pide la función tolerancia y numero máximo de iteraciones
+-Se pide al usuario A y B, los valores para el intervalo inicial
+ -Se crea variable i para contar las iteraciones
+-Se evalua A y B obteniendo f(A) y f (B)
+-Se revisa si hay una raiz en el intervalo `if f(A) * f(B) <= 0`
+-`Error = (A+B)/2^i`
+-Ahora encontraremos el valor medio del intervalo `M = (A+B)/2` y lo evaluamos
+
+	while error > tolerance, i < niter, f(M)!=., f(A)*f(B)<0 do:
+		if f(A)*f(M)< 0:
+			B=M
+			f(B) = f(M)
+			M = (A+B)/2
+			f(M)
+			i = i + 1
+			Error = (A+B)/2^i
+		if f(M)*f(B) < 0
+			A=M
+			f(A) = f(M)
+			M = (A+B)/2
+			f(M)
+			i = i + 1
+			Error = (A+B)/2^i
+- Ahora podemos llegar a diferentes paradas.
+-  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
+- Si `i >= niter` Se muestra hasta donde se haya iterado.
+
+### Regla Falsa
+Se debe tener la certeza de que la función es continua.
+
+-Se pide la funcion tolerancia y numero maximo de iteraciones
+-Se pide al usuario A y B, los valores para el intervalo inicial
+ -Se crea variable i para contar las iteraciones
+-Se evalua A y B obteniendo f(A) y f (B)
+-Se revisa si hay una raiz en el intervalo `if f(A) * f(B) <= 0`
+-`Error = |A-B|`
+-Ahora encontraremos el valor medio del intervalo `M = A-(f(A)*(A-B))/(f(A)-f(B))` y lo evaluamos 
+
+	while error > tolerance, i < niter, f(M)!=., f(A)*f(B)<0 do:
+		if f(A)*f(M)< 0:
+			B=M
+			f(B) = f(M)
+			M = A-(f(A)*(A-B))/(f(A)-f(B))
+			f(M)
+			i = i + 1
+			Error = |A-B|
+		if f(M)*f(B) < 0
+			A=M
+			f(A) = f(M)
+			M = A-(f(A)*(A-B))/(f(A)-f(B))
+			f(M)
+			i = i + 1
+			Error = |A-B|
+
+- Ahora podemos llegar a diferentes paradas.
+-  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
+- Si `i >= niter` Se muestra hasta donde se haya iterado.
+
+
+### Punto fijo
+Se debe tener la certeza de que la función f es continua, además la función g debe ser valida.
+
+-Se pide la función f, la función g, tolerancia y numero máximo de iteraciones
+-Se pide al usuario un valor X0 que será el valor inicial y se evalúa f(X0)
+ -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Asi tenemos `Xn = g(X0).`
+-Buscamos el `error = |x0 - xn|`
+
+	while error > tolerance, n < niter:
+		X0= Xn
+		Xn = g(Xn)
+		Error = |X0-Xn|
+		f(Xn)
+		
+Ahora podemos llegar a diferentes paradas.
+-  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
+- Si `i >= niter` Se muestra hasta donde se haya iterado.
+
+
+### Newton Raphson
+Se debe tener la certeza de que la función f es continua, además su derivada debe ser diferente de cero en el intervalo dado.
+
+-Se pide la función f, su derivada, tolerancia y numero máximo de iteraciones
+-Se pide al usuario un valor X0 que será el valor inicial y se evalúa f(X0) 
+-Se evalúa X0 en la derivada para obtener f'(X0)
+ -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Asi tenemos `Xn = x0-(f(x0)/f'(x0))`
+-Buscamos el `error = |x0 - xn|`
+
+	while error > tolerance, n < niter:
+		X0= Xn
+		X0 = f(Xn)
+		f'(x0)
+		Xn = x0-(f(x0)/f'(x0))
+		Error = |X0-Xn|
+		f(Xn)
+		
+Ahora podemos llegar a diferentes paradas.
+-  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
+- Si `i >= niter` Se muestra hasta donde se haya iterado.
+
+
+### Secante
+Se debe tener la certeza de que la función f es continua
+
+-Se pide la función f, tolerancia y numero máximo de iteraciones
+-Se pide al usuario un valor X0 y X1 y se evalúan f(X0) y f(X1)
+ -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Asi tenemos `Xn = x1-(f(X1)*(x1-x0)/f(x1)-f(x0))`
+-Buscamos el `error = |x1 - xn|`
+
+	while error > tolerance, n < niter:
+		X0= X1
+		x1 = xn
+		f(x0)
+		f(x1)
+		Xn = x1-(f(X1)*(x1-x0)/f(x1)-f(x0))
+		f(xn)
+		Error = |X1-Xn|
+		f(Xn)
+		
+Ahora podemos llegar a diferentes paradas.
+-  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
+- Si `i >= niter` Se muestra hasta donde se haya iterado.
+
+### Raices Multiples
+Se debe tener la certeza de que la función f es continua
+
+-Se pide la función f, la primera derivada de f, la segunda derivada de f, tolerancia y numero máximo de iteraciones
+-Se pide al usuario un valor X0 y se evalúa f(X0) f'(X0) y f''(X0)
+ -Ahora encontraremos el siguiente valor de x, y lo guardaremos en Xn, luego continuaremos evaluando X0 en g(x). Asi tenemos `Xn = x0-(f(x0)*f'(x0)/f'(x1)^2-f(x0)*f''(x0))`
+-Buscamos el `error = |x0 - x1|`
+
+	while error > tolerance, n < niter:
+		X0= X1
+		f(x0)
+		f'(x0)
+		f''(x0)
+		Xn = x0-(f(x0)*f'(x0)/f'(x1)^2-f(x0)*f''(x0))
+		Error = |X1-Xn|
+		f(Xn)
+		
+		
+Ahora podemos llegar a diferentes paradas.
+-  si `error <= tolerance` devolveremos la raíz localizada en el intervalo [A,B] junto con el error.
+- Si `i >= niter` Se muestra hasta donde se haya iterado.
