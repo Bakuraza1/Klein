@@ -1373,3 +1373,19 @@ La ejecución del método va así:
 
 ## Para tener en cuenta
 - Se han detectado problemas al utilizar numeros imaginarios. Cuando estos estan presentes no se operan sino que aparece 'nan'
+
+## Ejecución 
+De querer ejecutar esta aplicación local primero asegúrese de:
+- Tener instalado Python
+- Tener instalado Django
+
+Para ejecutar primero cree un directorio y allí, ejecute en la terminal.
+
+		git clone https://github.com/Bakuraza1/Klein.git
+
+Una vez hecho esto se clonara todo el repositorio en su carpeta.
+Ahora para ejecutar la pagina ejecute.
+
+	cd Klein //Para dirigirse a la carpeta del proyecto
+	python manage.py runserver // Para ejecutar la aplicacion
+Así ya la aplicación será ejecutada en su localhost y podrá utilizar todas las funcionalidades.
