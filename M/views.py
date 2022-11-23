@@ -7,6 +7,7 @@ import datetime
 from collections import OrderedDict
 from django.urls import reverse
 import numpy as np
+from matplotlib import pyplot as plt
 
 # Create your views here.
 
@@ -383,26 +384,61 @@ def SP(request):
         y = np.array(y).astype(np.float64)
         res = spline(x, y, metodo)
         ans = []
-        
+        ans2 =[]
         for i in res:
             stra = ""
+            stre = ""
             for j in range(0 , len(i)):
                 if j > 0:
                     if (j+1) == len(i):
                         stra += '+' +  str(i[j])
+                        stre += '+' +  str(i[j])
                     else:
                         stra += '+' + str(i[j]) + 'x{}'.format(get_super(str(len(i)-j-1)))
+                        stre += '+' +  str(i[j]) + '*x**{}'.format(str(len(i)-j-1))
                 else:  
                     if (j+1) == len(i):
                         stra +=  str(i[j])
+                        stre += '+' +  str(i[j])
                     else:
                         stra +=  str(i[j]) + 'x{}'.format(get_super(str(len(i)-j-1)))
+                        stre += '+' +  str(i[j]) + '*x**{}'.format(str(len(i)-j-1))
             ans.append(stra)
-        print(ans)
-                
+            ans2.append(stre)
+        print(ans2)
+        graficar(x, y, ans2)
         print(res)
         return render(request, "sp.html",{'number': range(0,number), 'n': number, 'res':res, 'ans':ans})
     return render(request, "sp.html",{'number': range(0,number), 'n': number})
+
+
+def graficar(x, y, f):
+    f = f
+    f2 = []
+    for i in range(0, len(f)):
+        l = list(f[i])
+        if l[0]=='+':
+            del l[0]
+        f2.append("".join(l))
+    print(f2)
+    x = x
+    y = y
+    x_values = []
+    y_values = []
+    for i in range(len(x) - 1):
+        plt.axvline(x = x[i], color = 'black', label = 'axvline - full height')
+        x_values.append([np.arange((x[i]),(x[i+1]), 0.01)])
+    plt.axvline(x=x[-1], color='black', label='axvline - full height')
+    for i in range(len(x) - 1):
+        y_values.append([])
+        for j in range(len(x_values[i])):
+            x = x_values[i][j]
+            y = eval(f2[i])
+            y_values[i].append(y)
+    for i in range(len(x_values)):
+        plt.plot(x_values[i][0], y_values[i][0])
+    plt.savefig('./M/static/images/foo.png')
+    return 0
 
 
 def get_super(x):
