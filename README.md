@@ -1098,3 +1098,65 @@ La ejecución del método va así:
 	Xant = Xact
 
 	Counter++
+		
+
+### Metodo de Vandermonde
+
+- Se solicita la entrada, esta consta de dos vectores x y f(x) o y.
+
+- Se construye la matriz de Vandermonde a partir del vector x.
+
+- Se multiplica la inversa de la matriz de Vandermonde por el vector y y se obtienen los coeficientes.
+- El método retorna la matriz de Vandermonde y los coeficientes del polinomio de interpolación.
+
+### Metodo de de Spline
+
+1. Se solicita la entrada, esta consta de dos vectores x y f(x), y un argumento d que corresponde a el grado de los polinomios, lineales(1),cuadraticos(2) y cubicos(3).
+
+2. Segun el parametro d se hace lo siguiente:
+
+		Si d=1
+
+			Para i = 0 hasta n-1
+
+				Mi = (y(xi+1) – y(xi)) / (xi+1 -xi)
+
+				p(x) = (y(xi+1)-y(xi)) = Mi∗(x-xi)
+	
+		Si d = 2
+
+			Para i = 1 hasta n
+
+				p(x) = Ai∗xi 2 + Bi∗xi + Ci
+
+			Para i = 2 hasta n
+
+				p(x) = 2∗Ai-1∗xi-1 + Bi-1 = 2∗Ai∗xi-1 + Bi
+
+			Finalmente
+
+				p(x) = 2∗Ai-1∗xn + Bi-1=0
+		
+				p(x) = 2∗Ai∗xn + Bi = 0
+
+		Si d=3
+
+			Para i = 1 hasta n
+
+				p(X) = Ai∗Xi 3 + Bi∗xi 2 + Ci∗xi + Di
+
+			Para i = 2 hasta n
+
+				p(X) = 3∗Ai-1∗xi-1 2 + 2∗Bi-1∗xi-1 + Ci-1 = 3∗Ai∗xi-1 2 + 2∗Bi∗Xi-1+ Ci
+
+			Para i = 3 hasta n
+
+				p(X) = 6∗Ai-1∗Xi-1+ 2∗Bi-1 = 6∗Ai-1∗Xi + 2∗Bi-1
+
+			Finalmente
+
+				p(X) = 6∗Ai-1∗X0 + Bi-1= 0
+
+				p(X) = 6∗Ai∗Xn + Bi = 0
+
+4.El metodo retorna una lista con los coeficientes de cada polinomio.
