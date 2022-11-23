@@ -92,16 +92,11 @@ Documentación: https://mauriciopoppe.github.io/function-plot/
 
 A continuación, se mostrarán algunos ejemplos de funciones bien definidas.
 
-| Correcto |
-
-| ----------- |
-
-| x^2+3|
-
+| Correcto | 
+|--|--|
+| x^2+3 | 
 | log(x+3)/8|
-
 |sin(x)|
-
 |cos(x)|
 
 **NOTA** Las funciones siempre deben estar en términos de x (Minúscula) para que el graficador funcione correctamente.
@@ -116,17 +111,12 @@ Estas funciones se deben escribir en la sintaxis que se escribirían en Python, 
 
 A continuación, se agregará una tabla mostrando funciones bien definidas, comparándolas con las antes mostradas para el graficador.
 
-| Graficador | Métodos |
-
-| ----------- | --------- |
-
-| x^2+3 | x**2+3 |
-
-| log(x+3)/8 | math.log(x+3)/8 |
-
-| sin(x)| math.sin(x)|
-
-| cos(x)| math.cos(x) |
+| Graficador | Métodos  |
+|--|--|
+| x^2+3| x**2+3|
+| log(x+3)/8| math.log(x+3)/8|
+|sin(x)| math.sin(x)|
+|cos(x)|math.cos(x) |
 
 Tener en cuenta que las funciones se deben escribir en términos de x (minúscula)
 
