@@ -443,7 +443,10 @@ def graficar(x, y, f):
     y_values = []
     for i in range(len(x) - 1):
         plt.axvline(x = x[i], color = 'black', label = 'axvline - full height')
-        x_values.append([np.arange((x[i]),(x[i+1]), 0.01)])
+        if x[i] < x[i + 1]:
+            x_values.append([np.arange((x[i]),(x[i+1]), 0.01)])
+        else:
+            x_values.append([np.arange((x[i]),(x[i+1]), -0.01)])
     plt.axvline(x=x[-1], color='black', label='axvline - full height')
     for i in range(len(x) - 1):
         y_values.append([])
