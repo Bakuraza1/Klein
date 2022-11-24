@@ -544,7 +544,7 @@ Tabla que mostrará cada iteración, dicha tabla tendrá las columnas:
 
 - Tamaño vectores(n): tamaño del vector
 
-- Vector x: Puntos en x
+- Vector x: Puntos en x de menor a mayor
 
 - Vector y: puntos en y
 
